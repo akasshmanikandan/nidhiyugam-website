@@ -241,10 +241,12 @@
     ══════════════════════════════ */
     #w-hero {
       min-height: 100vh;
-      background-image: var(--wood-bg-dark);
-      background-size: cover, cover;
-      background-position: center, center;
-      background-repeat: no-repeat, no-repeat;
+      background:
+        linear-gradient(180deg, rgba(6, 9, 6, 0.58), rgba(4, 6, 4, 0.88)),
+        url("wood-grain-texture.svg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       display: flex; flex-direction: column; justify-content: center;
       padding: 11rem 6vw 6rem;
       position: relative; overflow: hidden;
@@ -253,10 +255,23 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        linear-gradient(135deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 18px),
-        radial-gradient(ellipse at 66% 44%, rgba(82,183,136,0.14) 0%, transparent 62%),
-        linear-gradient(90deg, rgba(14,31,19,0.4), rgba(14,31,19,0.16));
+        radial-gradient(circle at 14% 20%, rgba(255,255,255,0.08), transparent 16%),
+        radial-gradient(circle at 88% 10%, rgba(255,255,255,0.06), transparent 22%),
+        radial-gradient(circle at 50% 100%, rgba(0,0,0,0.52), transparent 55%),
+        linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.46));
       pointer-events: none;
+    }
+    #w-hero .hero-title { color: rgba(255,255,255,0.98); }
+    #w-hero .hero-tagline { color: rgba(255,255,255,0.88); }
+    #w-hero .hero-eyebrow { color: var(--gold-lt); }
+    #w-hero .stat-label { color: rgba(255,255,255,0.72); }
+    #w-hero .btn-ghost {
+      color: rgba(255,255,255,0.92);
+      border-color: rgba(255,255,255,0.35);
+    }
+    #w-hero .btn-ghost:hover {
+      color: rgba(255,255,255,1);
+      border-color: rgba(255,255,255,0.7);
     }
 
     /* ══════════════════════════════
@@ -389,7 +404,8 @@
       position: absolute;
       inset: 0;
       transform-origin: 0 0;
-      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
     }
 
     .map-svg-wrapper svg,
@@ -414,8 +430,8 @@
       stroke: rgba(200, 150, 62, 0.72);
       stroke-width: 1.3;
       opacity: 1;
-      pointer-events: auto;
-      cursor: pointer;
+      pointer-events: none;
+      cursor: default;
     }
 
     .map-svg-wrapper svg path.south-state:hover,
@@ -1169,6 +1185,7 @@
           <!-- Pins overlay generated dynamically -->
         </div>
         <div class="map-state-switcher" id="map-state-switcher">
+          <button type="button" class="map-state-button active" data-state="southIndia">South India</button>
           <button type="button" class="map-state-button" data-state="tamilNadu">Tamil Nadu</button>
           <button type="button" class="map-state-button" data-state="karnataka">Karnataka</button>
           <button type="button" class="map-state-button" data-state="kerala">Kerala</button>
@@ -2267,18 +2284,8 @@
           const id = path.id;
           if (stateById[id]) {
             path.classList.add('south-state');
-            path.setAttribute('tabindex', '0');
             path.setAttribute('aria-label', stateById[id]);
-            const mapKey = stateKeyById[id];
-            if (mapKey) {
-              path.addEventListener('click', () => focusMapState(mapKey));
-              path.addEventListener('keydown', event => {
-                if (event.key === 'Enter' || event.key === ' ') {
-                  event.preventDefault();
-                  focusMapState(mapKey);
-                }
-              });
-            }
+            path.style.pointerEvents = 'none';
           }
         });
 
