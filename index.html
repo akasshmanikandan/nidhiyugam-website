@@ -21,10 +21,10 @@
       --rule:    #D8CFC5;
       --wood-texture: url("wood-grain-texture.svg");
       --wood-bg-dark:
-        linear-gradient(180deg, rgba(5, 9, 4, 0.30), rgba(4, 7, 3, 0.28)),
+        linear-gradient(90deg, rgba(14,31,19,0.98) 0%, rgba(14,31,19,0.94) 48%, rgba(14,31,19,0.88) 100%),
         var(--wood-texture);
       --wood-bg-soft:
-        linear-gradient(180deg, rgba(8, 14, 8, 0.24), rgba(6, 10, 6, 0.22)),
+        linear-gradient(135deg, rgba(247,243,238,0.96), rgba(243,248,245,0.94)),
         var(--wood-texture);
       --fs-xs:   0.75rem;
       --fs-sm:   0.875rem;
@@ -241,12 +241,9 @@
     ══════════════════════════════ */
     #w-hero {
       min-height: 100vh;
-      background:
-        linear-gradient(180deg, rgba(6, 9, 6, 0.58), rgba(4, 6, 4, 0.88)),
-        url("wood-grain-texture.svg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+      background: var(--wood-bg-dark);
+      background-size: auto, 640px 640px;
+      background-position: center, center;
       display: flex; flex-direction: column; justify-content: center;
       padding: 11rem 6vw 6rem;
       position: relative; overflow: hidden;
@@ -255,23 +252,10 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        radial-gradient(circle at 14% 20%, rgba(255,255,255,0.08), transparent 16%),
-        radial-gradient(circle at 88% 10%, rgba(255,255,255,0.06), transparent 22%),
-        radial-gradient(circle at 50% 100%, rgba(0,0,0,0.52), transparent 55%),
-        linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.46));
+        linear-gradient(135deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 18px),
+        radial-gradient(ellipse at 66% 44%, rgba(82,183,136,0.14) 0%, transparent 62%),
+        linear-gradient(90deg, rgba(14,31,19,0.4), rgba(14,31,19,0.16));
       pointer-events: none;
-    }
-    #w-hero .hero-title { color: rgba(255,255,255,0.98); }
-    #w-hero .hero-tagline { color: rgba(255,255,255,0.88); }
-    #w-hero .hero-eyebrow { color: var(--gold-lt); }
-    #w-hero .stat-label { color: rgba(255,255,255,0.72); }
-    #w-hero .btn-ghost {
-      color: rgba(255,255,255,0.92);
-      border-color: rgba(255,255,255,0.35);
-    }
-    #w-hero .btn-ghost:hover {
-      color: rgba(255,255,255,1);
-      border-color: rgba(255,255,255,0.7);
     }
 
     /* ══════════════════════════════
@@ -301,10 +285,9 @@
     ══════════════════════════════ */
     #b-services { background: var(--cream); }
     #w-products  {
-      background-image: var(--wood-bg-soft);
-      background-size: cover, cover;
+      background: var(--wood-bg-soft);
+      background-size: auto, 560px 560px;
       background-position: center, center;
-      background-repeat: no-repeat, no-repeat;
     }
     .services-header { max-width: 640px; margin-bottom: 3.5rem; }
     .services-grid {
@@ -404,8 +387,7 @@
       position: absolute;
       inset: 0;
       transform-origin: 0 0;
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-      will-change: transform;
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .map-svg-wrapper svg,
@@ -430,8 +412,8 @@
       stroke: rgba(200, 150, 62, 0.72);
       stroke-width: 1.3;
       opacity: 1;
-      pointer-events: none;
-      cursor: default;
+      pointer-events: auto;
+      cursor: pointer;
     }
 
     .map-svg-wrapper svg path.south-state:hover,
@@ -441,9 +423,9 @@
       stroke-width: 1.9;
     }
 
-    .map-svg-wrapper.state-focused svg path:not(.active-state) {
+    .map-svg-wrapper.state-focused svg path.south-state:not(.active-state) {
       opacity: 0;
-      pointer-events: none;
+      pointer-events: auto;
     }
 
     .map-reset-btn {
@@ -477,35 +459,6 @@
     .map-reset-btn:hover {
       border-color: var(--gold);
       color: var(--white);
-    }
-
-    .map-state-switcher {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0 0.75rem;
-    }
-
-    .map-state-button {
-      padding: 0.6rem 0.9rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.08);
-      color: #f5f5f5;
-      font-family: 'Manrope', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .map-state-button.active,
-    .map-state-button:hover {
-      background: rgba(200, 150, 62, 0.95);
-      border-color: rgba(200, 150, 62, 0.95);
-      color: #0d1b2a;
     }
     
     /* Pointers & Pins */
@@ -842,10 +795,9 @@
        VALUES (WOOD)
     ══════════════════════════════ */
     #w-values {
-      background-image: var(--wood-bg-soft);
-      background-size: cover, cover;
+      background: var(--wood-bg-soft);
+      background-size: auto, 560px 560px;
       background-position: center, center;
-      background-repeat: no-repeat, no-repeat;
     }
     .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
     .value-card {
@@ -860,10 +812,9 @@
        MISSION VISION (WOOD)
     ══════════════════════════════ */
     #w-mission {
-      background-image: var(--wood-bg-dark);
-      background-size: cover, cover;
+      background: var(--wood-bg-dark);
+      background-size: auto, 640px 640px;
       background-position: center, center;
-      background-repeat: no-repeat, no-repeat;
     }
     #w-mission .section-title { color: var(--white); }
     .mvg-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
@@ -889,10 +840,9 @@
     .team-section { padding: 5rem 6vw; }
     .team-section-banking { background: var(--navy); }
     .team-section-wood {
-      background-image: var(--wood-bg-dark);
-      background-size: cover, cover;
+      background: var(--wood-bg-dark);
+      background-size: auto, 640px 640px;
       background-position: center, center;
-      background-repeat: no-repeat, no-repeat;
     }
     .team-section .section-title { color: var(--white); }
     .team-grid { display: flex; gap: 2rem; margin-top: 2.5rem; flex-wrap: wrap; }
@@ -918,10 +868,9 @@
     .contact-section { padding: 6rem 6vw; }
     .contact-section-banking { background: var(--cream); }
     .contact-section-wood {
-      background-image: var(--wood-bg-soft);
-      background-size: cover, cover;
+      background: var(--wood-bg-soft);
+      background-size: auto, 560px 560px;
       background-position: center, center;
-      background-repeat: no-repeat, no-repeat;
     }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
     .contact-info p { color: var(--slate); line-height: 1.8; font-size: var(--fs-base); }
@@ -1183,14 +1132,6 @@
             <img src="india_svg_map.svg" alt="India Map Outline" />
           </div>
           <!-- Pins overlay generated dynamically -->
-        </div>
-        <div class="map-state-switcher" id="map-state-switcher">
-          <button type="button" class="map-state-button active" data-state="southIndia">South India</button>
-          <button type="button" class="map-state-button" data-state="tamilNadu">Tamil Nadu</button>
-          <button type="button" class="map-state-button" data-state="karnataka">Karnataka</button>
-          <button type="button" class="map-state-button" data-state="kerala">Kerala</button>
-          <button type="button" class="map-state-button" data-state="andhraPradesh">Andhra Pradesh</button>
-          <button type="button" class="map-state-button" data-state="maharashtra">Maharashtra</button>
         </div>
         <button class="map-reset-btn" id="map-reset" type="button">Reset Map</button>
         
@@ -2102,49 +2043,12 @@
     "Kerala": "kl",
     "Karnataka": "ka",
     "Andhra Pradesh": "ap",
-    "Maharashtra": "mh",
     "Telangana": "tg"
   };
   const stateById = Object.fromEntries(Object.entries(southStates).map(([name, id]) => [id, name]));
-  const stateConfigs = {
-    southIndia: {
-      id: null,
-      label: 'South India',
-      branches: ['Tamil Nadu', 'Karnataka', 'Kerala', 'Andhra Pradesh', 'Maharashtra']
-    },
-    tamilNadu: {
-      id: 'tn',
-      label: 'Tamil Nadu',
-      branches: locationsData['Tamil Nadu'].map(loc => loc.name)
-    },
-    karnataka: {
-      id: 'ka',
-      label: 'Karnataka',
-      branches: locationsData['Karnataka'].map(loc => loc.name)
-    },
-    kerala: {
-      id: 'kl',
-      label: 'Kerala',
-      branches: locationsData['Kerala'].map(loc => loc.name)
-    },
-    andhraPradesh: {
-      id: 'ap',
-      label: 'Andhra Pradesh',
-      branches: locationsData['Andhra Pradesh'].map(loc => loc.name)
-    },
-    maharashtra: {
-      id: 'mh',
-      label: 'Maharashtra',
-      branches: locationsData['Maharashtra'].map(loc => loc.name)
-    }
-  };
-  const stateKeyById = Object.fromEntries(Object.entries(stateConfigs)
-    .filter(([, config]) => config.id)
-    .map(([key, config]) => [config.id, key]));
   const mapWrapper = document.getElementById('map-wrapper');
   const mapInner = document.getElementById('map-inner');
   const mapReset = document.getElementById('map-reset');
-  const mapStateSwitcher = document.getElementById('map-state-switcher');
   let mapSvg;
 
   function townId(name) {
@@ -2181,34 +2085,9 @@
 
   function setVisiblePins(stateName = null) {
     document.querySelectorAll('.map-pin').forEach(pin => {
-      const visible = stateName ? pin.dataset.state === stateName : true;
+      const visible = stateName ? pin.dataset.state === stateName : Boolean(southStates[pin.dataset.state]);
       pin.classList.toggle('visible-pin', visible);
     });
-  }
-
-  function setActiveMapButton(stateKey) {
-    if (!mapStateSwitcher) return;
-    mapStateSwitcher.querySelectorAll('.map-state-button').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.state === stateKey);
-    });
-  }
-
-  function computeStateTransform(stateKey) {
-    const config = stateConfigs[stateKey];
-    if (!config || !mapSvg || !config.id) return null;
-
-    const bounds = getStateBounds([config.id]);
-    if (!bounds) return null;
-
-    const rect = mapWrapper.getBoundingClientRect();
-    const vb = mapSvg.viewBox.baseVal;
-    const scale = Math.min(vb.width / (bounds.width * 0.75), vb.height / (bounds.height * 0.75));
-    const centerX = (bounds.x + bounds.width / 2) / vb.width * rect.width;
-    const centerY = (bounds.y + bounds.height / 2) / vb.height * rect.height;
-    const tx = rect.width / 2 - centerX * scale;
-    const ty = rect.height / 2 - centerY * scale;
-
-    return { scale, tx, ty };
   }
 
   function setMapOverview() {
@@ -2221,27 +2100,18 @@
     transformMapToBounds(getStateBounds(Object.values(southStates)), 1.12);
     setVisiblePins();
     if (mapReset) mapReset.classList.remove('visible');
-    setActiveMapButton('southIndia');
   }
 
-  function focusMapState(stateKey) {
-    const config = stateConfigs[stateKey];
-    if (!mapSvg || !config || !config.id) return;
-
+  function focusMapState(stateId) {
+    if (!mapSvg || !stateById[stateId]) return;
     mapWrapper.classList.add('state-focused');
     Object.values(southStates).forEach(id => {
       const path = mapSvg.querySelector(`#${id}`);
-      if (path) path.classList.toggle('active-state', id === config.id);
+      if (path) path.classList.toggle('active-state', id === stateId);
     });
-
-    const transform = computeStateTransform(stateKey);
-    if (transform) {
-      mapInner.style.transform = `translate(${transform.tx}px, ${transform.ty}px) scale(${transform.scale})`;
-    }
-
-    setVisiblePins(config.label);
+    transformMapToBounds(getStateBounds([stateId]), 1.45);
+    setVisiblePins(stateById[stateId]);
     if (mapReset) mapReset.classList.add('visible');
-    setActiveMapButton(stateKey);
   }
 
   function renderMapPins() {
@@ -2284,8 +2154,15 @@
           const id = path.id;
           if (stateById[id]) {
             path.classList.add('south-state');
+            path.setAttribute('tabindex', '0');
             path.setAttribute('aria-label', stateById[id]);
-            path.style.pointerEvents = 'none';
+            path.addEventListener('click', () => focusMapState(id));
+            path.addEventListener('keydown', event => {
+              if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                focusMapState(id);
+              }
+            });
           }
         });
 
@@ -2302,26 +2179,10 @@
     mapReset.addEventListener('click', setMapOverview);
   }
 
-  if (mapStateSwitcher) {
-    mapStateSwitcher.addEventListener('click', event => {
-      const button = event.target.closest('.map-state-button');
-      if (!button) return;
-      const stateKey = button.dataset.state;
-      if (stateKey === 'southIndia') {
-        setMapOverview();
-      } else {
-        focusMapState(stateKey);
-      }
-    });
-  }
-
   window.addEventListener('resize', () => {
     const active = mapSvg && mapSvg.querySelector('.active-state');
     if (active) {
-      const stateKey = stateKeyById[active.id];
-      if (stateKey) {
-        focusMapState(stateKey);
-      }
+      focusMapState(active.id);
     } else {
       setMapOverview();
     }
