@@ -19,6 +19,13 @@
       --white:   #FFFFFF;
       --slate:   #6B7A8D;
       --rule:    #D8CFC5;
+      --wood-texture: url("wood-grain-texture.svg");
+      --wood-bg-dark:
+        linear-gradient(90deg, rgba(14,31,19,0.98) 0%, rgba(14,31,19,0.94) 48%, rgba(14,31,19,0.88) 100%),
+        var(--wood-texture);
+      --wood-bg-soft:
+        linear-gradient(135deg, rgba(247,243,238,0.96), rgba(243,248,245,0.94)),
+        var(--wood-texture);
       --fs-xs:   0.75rem;
       --fs-sm:   0.875rem;
       --fs-base: 1rem;
@@ -234,14 +241,9 @@
     ══════════════════════════════ */
     #w-hero {
       min-height: 100vh;
-      background:
-        linear-gradient(90deg, rgba(14,31,19,0.98) 0%, rgba(14,31,19,0.9) 48%, rgba(14,31,19,0.72) 100%),
-        image-set(
-          url("https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1200&q=78") 1x,
-          url("https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=2000&q=78") 2x
-        );
-      background-size: cover;
-      background-position: center right;
+      background: var(--wood-bg-dark);
+      background-size: auto, 640px 640px;
+      background-position: center, center;
       display: flex; flex-direction: column; justify-content: center;
       padding: 11rem 6vw 6rem;
       position: relative; overflow: hidden;
@@ -250,8 +252,9 @@
       content: '';
       position: absolute; inset: 0;
       background:
-        linear-gradient(135deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 18px),
-        radial-gradient(ellipse at 65% 45%, rgba(82,183,136,0.12) 0%, transparent 65%);
+        linear-gradient(135deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 18px),
+        radial-gradient(ellipse at 66% 44%, rgba(82,183,136,0.14) 0%, transparent 62%),
+        linear-gradient(90deg, rgba(14,31,19,0.4), rgba(14,31,19,0.16));
       pointer-events: none;
     }
 
@@ -281,7 +284,11 @@
        SERVICES GRIDS
     ══════════════════════════════ */
     #b-services { background: var(--cream); }
-    #w-products  { background: var(--cream); }
+    #w-products  {
+      background: var(--wood-bg-soft);
+      background-size: auto, 560px 560px;
+      background-position: center, center;
+    }
     .services-header { max-width: 640px; margin-bottom: 3.5rem; }
     .services-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -300,6 +307,12 @@
     .green-card .sc-icon { color: var(--green); }
     .service-card:hover .sc-icon { color: var(--gold); }
     .green-card:hover .sc-icon { color: var(--green-lt); }
+    .service-card.green-card,
+    .value-card,
+    .mvg-card,
+    .team-card-wood {
+      box-shadow: 0 14px 32px rgba(13, 27, 42, 0.08);
+    }
     .sc-title {
       font-family: 'Cormorant Garamond', serif; font-size: var(--fs-xl);
       font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; transition: color 0.2s;
@@ -457,7 +470,7 @@
       cursor: pointer;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.25s ease, visibility 0.25s ease;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
     .map-pin.visible-pin {
@@ -781,7 +794,11 @@
     /* ══════════════════════════════
        VALUES (WOOD)
     ══════════════════════════════ */
-    #w-values { background: var(--white); }
+    #w-values {
+      background: var(--wood-bg-soft);
+      background-size: auto, 560px 560px;
+      background-position: center, center;
+    }
     .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
     .value-card {
       background: var(--cream); padding: 2rem;
@@ -794,7 +811,11 @@
     /* ══════════════════════════════
        MISSION VISION (WOOD)
     ══════════════════════════════ */
-    #w-mission { background: #0E1F13; }
+    #w-mission {
+      background: var(--wood-bg-dark);
+      background-size: auto, 640px 640px;
+      background-position: center, center;
+    }
     #w-mission .section-title { color: var(--white); }
     .mvg-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
     .mvg-card { background: #162B1D; padding: 2rem; border-left: 3px solid var(--green); }
@@ -818,7 +839,11 @@
     ══════════════════════════════ */
     .team-section { padding: 5rem 6vw; }
     .team-section-banking { background: var(--navy); }
-    .team-section-wood    { background: #0E1F13; }
+    .team-section-wood {
+      background: var(--wood-bg-dark);
+      background-size: auto, 640px 640px;
+      background-position: center, center;
+    }
     .team-section .section-title { color: var(--white); }
     .team-grid { display: flex; gap: 2rem; margin-top: 2.5rem; flex-wrap: wrap; }
     .team-card { flex: 1; min-width: 240px; padding: 2rem; }
@@ -842,7 +867,11 @@
     ══════════════════════════════ */
     .contact-section { padding: 6rem 6vw; }
     .contact-section-banking { background: var(--cream); }
-    .contact-section-wood    { background: #F3F8F5; }
+    .contact-section-wood {
+      background: var(--wood-bg-soft);
+      background-size: auto, 560px 560px;
+      background-position: center, center;
+    }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
     .contact-info p { color: var(--slate); line-height: 1.8; font-size: var(--fs-base); }
     .contact-detail { display: flex; gap: 0.75rem; align-items: flex-start; margin-top: 1.25rem; }

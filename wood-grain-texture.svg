@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640">
+  <defs>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a1309"/>
+      <stop offset="0.22" stop-color="#4b2511"/>
+      <stop offset="0.48" stop-color="#6a3719"/>
+      <stop offset="0.74" stop-color="#3a1b0d"/>
+      <stop offset="1" stop-color="#251008"/>
+    </linearGradient>
+    <filter id="grain" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.012 0.08" numOctaves="5" seed="17" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="
+        0.62 0 0 0 0.08
+        0 0.36 0 0 0.04
+        0 0 0.16 0 0.02
+        0 0 0 0.58 0"/>
+      <feBlend mode="multiply" in2="SourceGraphic"/>
+    </filter>
+    <pattern id="fine-lines" width="96" height="640" patternUnits="userSpaceOnUse">
+      <path d="M6 0v640M18 0v640M37 0v640M63 0v640M89 0v640" stroke="#130904" stroke-opacity="0.26" stroke-width="1"/>
+      <path d="M11 0v640M44 0v640M70 0v640" stroke="#b87939" stroke-opacity="0.08" stroke-width="1.4"/>
+    </pattern>
+  </defs>
+  <rect width="640" height="640" fill="url(#base)"/>
+  <rect width="640" height="640" filter="url(#grain)" opacity="0.72"/>
+  <rect width="640" height="640" fill="url(#fine-lines)" opacity="0.55"/>
+  <path d="M-40 120c120 34 208-42 330 4 106 40 184 10 390-28M-60 316c144-38 232 24 346-8 126-36 210 42 410 0M-50 512c130 26 214-18 336 18 126 36 226-24 410-4" fill="none" stroke="#c28749" stroke-opacity="0.08" stroke-width="10"/>
+  <path d="M0 0h640v640H0z" fill="#08150e" opacity="0.18"/>
+</svg>
