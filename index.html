@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NidhiYugam Associates – Banking, Financial & Wood Packaging Solutions</title>
+  <title>Nidhi Yuga Associates – Banking, Financial & Wood Packaging Solutions</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,7 +33,7 @@
       --fs-xl:   1.375rem;
       --fs-2xl:  1.75rem;
       --fs-3xl:  2.5rem;
-      --fs-hero: clamp(2.8rem, 5.6vw, 5rem);
+      --fs-hero: clamp(2.6rem, 5.5vw, 4.5rem);
     }
 
     html { scroll-behavior: smooth; }
@@ -44,717 +44,13 @@
         radial-gradient(circle at 12% 15%, rgba(200,150,62,0.08), transparent 28%),
         var(--cream);
       color: var(--ink);
-      line-height: 1.72;
+      line-height: 1.6;
       font-weight: 400;
-      text-rendering: geometricPrecision;
     }
 
     /* ══════════════════════════════
-       NAV
+       BACK TO TOP BUTTON
     ══════════════════════════════ */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      background: rgba(13,27,42,0.97);
-      backdrop-filter: blur(10px);
-    }
-    .nav-top {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0.9rem 6vw;
-      border-bottom: 1px solid #1E3148;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: var(--fs-xl);
-      font-weight: 700;
-      color: var(--white);
-      letter-spacing: 0;
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--gold); }
-
-    /* Division switcher in nav */
-    .div-switcher {
-      display: flex; gap: 0.25rem;
-      background: #0A1520;
-      border-radius: 3px;
-      padding: 0.25rem;
-    }
-    .div-btn {
-      padding: 0.4rem 1.1rem;
-      border: none; cursor: pointer;
-      font-family: 'Manrope', sans-serif;
-      font-size: var(--fs-xs);
-      font-weight: 800;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.2s, color 0.2s;
-      background: transparent;
-      color: #6B7A8D;
-    }
-    .div-btn.active-banking { background: var(--gold); color: var(--navy); }
-    .div-btn.active-wood    { background: var(--green); color: var(--white); }
-
-    .nav-links {
-      display: flex; gap: 1.75rem; list-style: none;
-      padding: 0.6rem 6vw;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: #B0BCCC;
-      font-size: var(--fs-xs);
-      font-weight: 700;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-cta {
-      padding: 0.35rem 1rem;
-      border-radius: 2px;
-    }
-    .banking-mode .nav-cta { background: var(--gold); color: var(--navy) !important; }
-    .wood-mode    .nav-cta { background: var(--green); color: var(--white) !important; }
-    .nav-links a.nav-cta:hover { opacity: 0.85; }
-
-    /* ══════════════════════════════
-       DIVISION PANELS
-    ══════════════════════════════ */
-    .division { display: none; }
-    .division.active { display: block; }
-
-    /* ══════════════════════════════
-       SHARED SECTION STYLES
-    ══════════════════════════════ */
-    section { padding: 6rem 6vw; }
-    .section-eyebrow {
-      font-size: var(--fs-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-    .green-eye { color: var(--green-lt) !important; }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: var(--fs-3xl);
-      font-weight: 700;
-      line-height: 1.06;
-      color: var(--ink);
-      margin-bottom: 1.25rem;
-    }
-    .section-lead {
-      font-size: var(--fs-lg);
-      color: var(--slate);
-      max-width: 600px;
-      font-weight: 400;
-      line-height: 1.78;
-    }
-    .rule-gold  { width: 48px; height: 3px; background: var(--gold);  margin: 1.5rem 0; }
-    .rule-green { width: 48px; height: 3px; background: var(--green); margin: 1.5rem 0; }
-
-    /* ══════════════════════════════
-       HERO — BANKING
-    ══════════════════════════════ */
-    #b-hero {
-      min-height: 100vh;
-      background:
-        linear-gradient(90deg, rgba(13,27,42,0.98) 0%, rgba(13,27,42,0.9) 47%, rgba(13,27,42,0.72) 100%),
-        image-set(
-          url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=78") 1x,
-          url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=2000&q=78") 2x
-        );
-      background-size: cover;
-      background-position: center right;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 11rem 6vw 6rem;
-      position: relative; overflow: hidden;
-    }
-    #b-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 18px),
-        radial-gradient(ellipse at 70% 50%, rgba(200,150,62,0.15) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero-eyebrow {
-      font-size: var(--fs-sm); letter-spacing: 0.18em; text-transform: uppercase;
-      color: var(--gold); font-weight: 800; margin-bottom: 1.5rem;
-    }
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: var(--fs-hero); font-weight: 700;
-      color: var(--white); line-height: 0.98;
-      max-width: 820px; margin-bottom: 1.5rem;
-    }
-    .hero-title em { font-style: italic; color: var(--gold); }
-    .hero-title em.green { color: var(--green-lt); }
-    .hero-tagline {
-      font-size: var(--fs-lg); color: #8FA3B8;
-      max-width: 560px; margin-bottom: 2.5rem; font-weight: 400;
-      line-height: 1.75;
-    }
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-block; padding: 0.85rem 2rem;
-      background: var(--gold); color: var(--navy);
-      font-weight: 800; font-size: var(--fs-xs);
-      text-decoration: none; letter-spacing: 0.09em; text-transform: uppercase;
-      border-radius: 2px; transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
-    .btn-primary-green {
-      display: inline-block; padding: 0.85rem 2rem;
-      background: var(--green); color: var(--white);
-      font-weight: 800; font-size: var(--fs-xs);
-      text-decoration: none; letter-spacing: 0.09em; text-transform: uppercase;
-      border-radius: 2px; transition: background 0.2s, transform 0.15s;
-    }
-    .btn-primary-green:hover { background: var(--green-lt); color: var(--navy); transform: translateY(-2px); }
-    .btn-ghost {
-      display: inline-block; padding: 0.85rem 2rem;
-      border: 1px solid #3A5068; color: #8FA3B8;
-      font-weight: 800; font-size: var(--fs-xs);
-      text-decoration: none; letter-spacing: 0.09em; text-transform: uppercase;
-      border-radius: 2px; transition: border-color 0.2s, color 0.2s;
-    }
-    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
-    .hero-stats {
-      display: flex; gap: 3rem; flex-wrap: wrap;
-      margin-top: 5rem; padding-top: 2rem;
-      border-top: 1px solid #1E3148;
-    }
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: var(--fs-3xl); font-weight: 700;
-      color: var(--white); line-height: 1;
-    }
-    .stat-label {
-      font-size: var(--fs-xs); text-transform: uppercase;
-      letter-spacing: 0.12em; color: var(--slate); margin-top: 0.25rem;
-    }
-
-    /* ══════════════════════════════
-       HERO — WOOD
-    ══════════════════════════════ */
-    #w-hero {
-      min-height: 100vh;
-      background: var(--wood-bg-dark);
-      background-size: auto, 640px 640px;
-      background-position: center, center;
-      display: flex; flex-direction: column; justify-content: center;
-      padding: 11rem 6vw 6rem;
-      position: relative; overflow: hidden;
-    }
-    #w-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 18px),
-        radial-gradient(ellipse at 66% 44%, rgba(82,183,136,0.14) 0%, transparent 62%),
-        linear-gradient(90deg, rgba(14,31,19,0.4), rgba(14,31,19,0.16));
-      pointer-events: none;
-    }
-
-    /* ══════════════════════════════
-       ABOUT — BANKING
-    ══════════════════════════════ */
-    #b-about { background: var(--white); }
-    .about-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 5rem; align-items: center; margin-top: 3.5rem;
-    }
-    .about-body p { color: #445566; margin-bottom: 1rem; font-size: var(--fs-base); line-height: 1.8; }
-    .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .pillar {
-      background: var(--cream); padding: 1.5rem;
-      border-left: 3px solid var(--gold);
-    }
-    .pillar.green-border { border-left-color: var(--green); }
-    .pillar-title {
-      font-weight: 700; font-size: var(--fs-sm);
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: var(--navy); margin-bottom: 0.35rem;
-    }
-    .pillar-desc { font-size: var(--fs-sm); color: var(--slate); }
-
-    /* ══════════════════════════════
-       SERVICES GRIDS
-    ══════════════════════════════ */
-    #b-services { background: var(--cream); }
-    #w-products  {
-      background: var(--wood-bg-soft);
-      background-size: auto, 560px 560px;
-      background-position: center, center;
-    }
-    .services-header { max-width: 640px; margin-bottom: 3.5rem; }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px; background: var(--rule);
-    }
-    .service-card {
-      background: var(--white); padding: 2.5rem 2rem;
-      transition: background 0.2s;
-    }
-    .service-card:hover { background: var(--navy); }
-    .service-card.green-card:hover { background: #0E1F13; }
-    .service-card:hover .sc-title,
-    .service-card:hover .sc-desc,
-    .service-card:hover .sc-list li { color: var(--white); }
-    .sc-icon { font-size: 1.75rem; color: var(--gold); margin-bottom: 1.25rem; display: block; }
-    .green-card .sc-icon { color: var(--green); }
-    .service-card:hover .sc-icon { color: var(--gold); }
-    .green-card:hover .sc-icon { color: var(--green-lt); }
-    .service-card.green-card,
-    .value-card,
-    .mvg-card,
-    .team-card-wood {
-      box-shadow: 0 14px 32px rgba(13, 27, 42, 0.08);
-    }
-    .sc-title {
-      font-family: 'Cormorant Garamond', serif; font-size: var(--fs-xl);
-      font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; transition: color 0.2s;
-    }
-    .sc-desc { font-size: var(--fs-sm); color: var(--slate); margin-bottom: 1rem; line-height: 1.7; transition: color 0.2s; }
-    .sc-list { list-style: none; padding: 0; }
-    .sc-list li {
-      font-size: var(--fs-xs); color: #778899;
-      padding: 0.3rem 0; border-top: 1px solid var(--rule);
-      letter-spacing: 0.04em; transition: color 0.2s;
-    }
-    .service-card:hover .sc-list li { border-color: #1E3148; }
-
-    /* ══════════════════════════════
-       CONTRACTS TABLE
-    ══════════════════════════════ */
-    #b-contracts { background: var(--navy); }
-    #b-contracts .section-title { color: var(--white); }
-    #b-contracts .section-lead  { color: #8FA3B8; }
-    .contracts-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; font-size: var(--fs-sm); }
-    .contracts-table thead tr { background: var(--gold); }
-    .contracts-table th {
-      padding: 0.9rem 1.5rem; text-align: left;
-      font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-      font-size: var(--fs-xs); color: var(--navy);
-    }
-    .contracts-table tbody tr { border-bottom: 1px solid #1E3148; transition: background 0.15s; }
-    .contracts-table tbody tr:hover { background: #142233; }
-    .contracts-table td { padding: 1rem 1.5rem; color: #B0BCCC; }
-    .contracts-table td:first-child { color: var(--gold); font-weight: 700; }
-    .contracts-table td:nth-child(2) { color: var(--white); font-weight: 500; }
-
-    /* ══════════════════════════════
-       LOCATIONS (Visual Map & Hubs Grid)
-    ══════════════════════════════ */
-    #b-locations { background: var(--white); }
-    
-    .locations-layout {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 4rem;
-      align-items: start;
-      margin-top: 3.5rem;
-      margin-bottom: 4rem;
-    }
-    
-    /* Map Card Container */
-    .map-card {
-      position: relative;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 18px),
-        radial-gradient(circle at 52% 45%, #10243a 0%, #07101b 62%, #050a12 100%);
-      border-radius: 12px;
-      border: 1px solid #1e3148;
-      padding: 2.5rem 2rem;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .map-svg-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 440px;
-      aspect-ratio: 612 / 696;
-      overflow: hidden;
-    }
-    
-    .map-inner {
-      position: absolute;
-      inset: 0;
-      transform-origin: 0 0;
-      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .map-svg-wrapper svg,
-    .map-svg-wrapper img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
-    }
-
-    .map-svg-wrapper svg path {
-      fill: #101f33;
-      stroke: #1d3554;
-      stroke-width: 1;
-      opacity: 0;
-      pointer-events: none;
-      transition: fill 0.25s ease, opacity 0.25s ease, stroke 0.25s ease, stroke-width 0.25s ease;
-    }
-
-    .map-svg-wrapper svg path.south-state {
-      fill: #172c47;
-      stroke: rgba(200, 150, 62, 0.72);
-      stroke-width: 1.3;
-      opacity: 1;
-      pointer-events: auto;
-      cursor: pointer;
-    }
-
-    .map-svg-wrapper svg path.south-state:hover,
-    .map-svg-wrapper svg path.south-state.active-state {
-      fill: #203b5c;
-      stroke: var(--gold);
-      stroke-width: 1.9;
-    }
-
-    .map-svg-wrapper.state-focused svg path.south-state:not(.active-state) {
-      opacity: 0;
-      pointer-events: auto;
-    }
-
-    .map-reset-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      z-index: 25;
-      border: 1px solid rgba(200,150,62,0.48);
-      background: rgba(13,27,42,0.82);
-      color: var(--gold-lt);
-      padding: 0.45rem 0.75rem;
-      border-radius: 4px;
-      font-family: 'Manrope', sans-serif;
-      font-size: var(--fs-xs);
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-6px);
-      transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, border-color 0.2s ease;
-    }
-
-    .map-reset-btn.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .map-reset-btn:hover {
-      border-color: var(--gold);
-      color: var(--white);
-    }
-    
-    /* Pointers & Pins */
-    .map-pin {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      z-index: 10;
-      pointer-events: auto;
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .map-pin.visible-pin {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .pin-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 24px;
-      height: 24px;
-      background: rgba(200, 150, 62, 0.25);
-      border-radius: 50%;
-      animation: pinPulse 2s infinite ease-in-out;
-      pointer-events: none;
-      transition: all 0.3s ease;
-    }
-    
-    .pin-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--gold);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--gold);
-      border: 1.5px solid var(--white);
-      transition: all 0.3s ease;
-    }
-    
-    .pin-label {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 0.72rem;
-      font-weight: 700;
-      color: var(--white);
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.95);
-      white-space: nowrap;
-      font-family: 'Manrope', sans-serif;
-      pointer-events: none;
-      letter-spacing: 0.02em;
-    }
-    
-    /* Alternate label positioning for crowded areas */
-    .pin-label.label-left {
-      left: auto;
-      right: 14px;
-    }
-    .pin-label.label-top {
-      left: 50%;
-      top: -12px;
-      transform: translateX(-50%);
-    }
-    .pin-label.label-bottom {
-      left: 50%;
-      top: 18px;
-      transform: translateX(-50%);
-    }
-    
-    @keyframes pinPulse {
-      0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.7; }
-      50% { transform: translate(-50%, -50%) scale(2.0); opacity: 0; }
-      100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.7; }
-    }
-    
-    /* Map Legend overlay */
-    .map-legend {
-      position: absolute;
-      bottom: 2rem;
-      left: 2rem;
-      color: var(--white);
-      z-index: 15;
-      font-family: 'Cormorant Garamond', serif;
-    }
-    
-    .map-legend h4 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.15rem;
-      letter-spacing: 0.02em;
-    }
-    
-    .map-legend p {
-      font-family: 'Manrope', sans-serif;
-      font-size: 0.78rem;
-      color: var(--gold-lt);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-    
-    /* Hubs List Column */
-    .hubs-column {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    
-    .hubs-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: var(--fs-xl);
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    
-    .hubs-title svg {
-      width: 20px;
-      height: 20px;
-      fill: var(--gold);
-    }
-    
-    .hubs-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-    }
-    
-    .hub-card {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: var(--white);
-      padding: 1.1rem 1.25rem;
-      border-radius: 6px;
-      box-shadow: 0 4px 15px rgba(13, 27, 42, 0.04);
-      border: 1px solid #E5E0DA;
-      transition: all 0.25s ease;
-      cursor: pointer;
-    }
-    
-    .hub-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(13, 27, 42, 0.08);
-      border-color: var(--gold);
-    }
-    
-    .hub-card.active-hub {
-      border-color: var(--gold);
-      background: rgba(200, 150, 62, 0.03);
-    }
-    
-    .hub-card svg {
-      width: 18px;
-      height: 18px;
-      fill: var(--gold);
-      flex-shrink: 0;
-      transition: transform 0.25s ease;
-    }
-    
-    .hub-card:hover svg {
-      transform: scale(1.15);
-    }
-    
-    .hub-info {
-      display: flex;
-      flex-direction: column;
-    }
-    
-    .hub-prefix {
-      font-size: 0.72rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--slate);
-    }
-    
-    .hub-name {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
-    
-    /* Minor locations header and container */
-    .minor-locations-header {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: var(--fs-lg);
-      font-weight: 700;
-      color: var(--navy);
-      margin-top: 3.5rem;
-      margin-bottom: 1.5rem;
-      border-top: 1px solid var(--rule);
-      padding-top: 2.5rem;
-    }
-    
-    .state-block {
-      margin-bottom: 2.5rem;
-    }
-    
-    .state-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: var(--fs-base);
-      font-weight: 700;
-      color: var(--navy);
-      border-bottom: 2px solid var(--gold);
-      padding-bottom: 0.4rem;
-      margin-bottom: 1.25rem;
-      display: inline-block;
-    }
-    
-    .location-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    
-    .location-tag {
-      font-size: var(--fs-xs);
-      background: var(--white);
-      color: var(--slate);
-      padding: 0.35rem 0.8rem;
-      border: 1px solid #E0DCD5;
-      border-radius: 4px;
-      letter-spacing: 0.02em;
-      transition: all 0.2s ease;
-    }
-    
-    .location-tag:hover {
-      background: var(--navy);
-      color: var(--white);
-      border-color: var(--navy);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(13, 27, 42, 0.1);
-    }
-    /* Town Pin Styling */
-    .town-pin {
-      position: absolute;
-      transform: translate(-50%, -50%);
-      z-index: 8;
-      pointer-events: auto;
-      cursor: pointer;
-    }
-    
-    .town-dot {
-      width: 5px;
-      height: 5px;
-      background: var(--gold-lt);
-      border-radius: 50%;
-      box-shadow: 0 0 6px var(--gold-lt);
-      border: none;
-      opacity: 0.75;
-      transition: all 0.25s ease;
-    }
-    
-    .town-pin:hover .town-dot {
-      opacity: 1;
-      transform: scale(1.5);
-      background: var(--white);
-      box-shadow: 0 0 12px var(--gold-lt);
-    }
-    
-    /* Tooltip styling for normal towns */
-    .pin-tooltip {
-      position: absolute;
-      left: 50%;
-      bottom: 12px;
-      transform: translateX(-50%) scale(0.8);
-      background: rgba(13, 27, 42, 0.95);
-      border: 1px solid var(--gold);
-      color: var(--white);
-      padding: 0.25rem 0.5rem;
-      border-radius: 3px;
-      font-size: 0.65rem;
-      font-weight: 600;
-      white-space: nowrap;
-      pointer-events: none;
-      opacity: 0;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 100;
-    }
-    
-    .town-pin:hover .pin-tooltip {
-      opacity: 1;
-      transform: translateX(-50%) scale(1);
-      bottom: 14px;
-    }
-
     .back-to-top {
       position: fixed;
       right: 1.35rem;
@@ -790,15 +86,320 @@
       color: var(--white);
     }
 
+    /* ══════════════════════════════
+       NAV
+    ══════════════════════════════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(13,27,42,0.97);
+      backdrop-filter: blur(10px);
+    }
+    .nav-top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.9rem 6vw;
+      border-bottom: 1px solid #1E3148;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo-svg { height: 44px; width: auto; }
+    .nav-logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-xl);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      line-height: 1.1;
+    }
+    .nav-logo-text span { color: var(--gold); display: block; font-size: var(--fs-xs); font-family: 'Manrope', sans-serif; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
+    .nav-logo span { color: var(--gold); }
+
+    /* Division switcher in nav */
+    .div-switcher {
+      display: flex; gap: 0.25rem;
+      background: #0A1520;
+      border-radius: 3px;
+      padding: 0.25rem;
+    }
+    .div-btn {
+      padding: 0.4rem 1.1rem;
+      border: none; cursor: pointer;
+      font-family: 'Manrope', sans-serif;
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
+      background: transparent;
+      color: #6B7A8D;
+    }
+    .div-btn.active-banking { background: var(--gold); color: var(--navy); }
+    .div-btn.active-wood    { background: var(--green); color: var(--white); }
+
+    .nav-links {
+      display: flex; gap: 1.75rem; list-style: none;
+      padding: 0.6rem 6vw;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #B0BCCC;
+      font-size: var(--fs-xs);
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      padding: 0.35rem 1rem;
+      border-radius: 2px;
+    }
+    .banking-mode .nav-cta { background: var(--gold); color: var(--navy) !important; }
+    .wood-mode    .nav-cta { background: var(--green); color: var(--white) !important; }
+    .nav-links a.nav-cta:hover { opacity: 0.85; }
+
+    /* ══════════════════════════════
+       DIVISION PANELS
+    ══════════════════════════════ */
+    .division { display: none; }
+    .division.active { display: block; }
+
+    /* ══════════════════════════════
+       SHARED SECTION STYLES
+    ══════════════════════════════ */
+    section { padding: 6rem 6vw; }
+    .section-eyebrow {
+      font-size: var(--fs-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .green-eye { color: var(--green-lt) !important; }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-3xl);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+    .section-lead {
+      font-size: var(--fs-lg);
+      color: var(--slate);
+      max-width: 600px;
+      font-weight: 300;
+    }
+    .rule-gold  { width: 48px; height: 3px; background: var(--gold);  margin: 1.5rem 0; }
+    .rule-green { width: 48px; height: 3px; background: var(--green); margin: 1.5rem 0; }
+
+    /* ══════════════════════════════
+       HERO — BANKING (PRESERVED FROM USER VERSION)
+    ══════════════════════════════ */
+    #b-hero {
+      min-height: 100vh;
+      background: var(--navy);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 11rem 6vw 6rem;
+      position: relative; overflow: hidden;
+    }
+    #b-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 50%, rgba(200,150,62,0.13) 0%, transparent 65%),
+        repeating-linear-gradient(45deg, transparent, transparent 28px, rgba(255,255,255,0.018) 28px, rgba(255,255,255,0.018) 29px),
+        repeating-linear-gradient(-45deg, transparent, transparent 28px, rgba(255,255,255,0.018) 28px, rgba(255,255,255,0.018) 29px);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-size: var(--fs-sm); letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); font-weight: 600; margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-hero); font-weight: 700;
+      color: var(--white); line-height: 1.08;
+      max-width: 820px; margin-bottom: 1.5rem;
+    }
+    .hero-title em { font-style: italic; color: var(--gold); }
+    .hero-title em.green { color: var(--green-lt); }
+    .hero-tagline {
+      font-size: var(--fs-lg); color: #8FA3B8;
+      max-width: 540px; margin-bottom: 2.5rem; font-weight: 300;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block; padding: 0.85rem 2rem;
+      background: var(--gold); color: var(--navy);
+      font-weight: 700; font-size: var(--fs-sm);
+      text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: 2px; transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); }
+    .btn-primary-green {
+      display: inline-block; padding: 0.85rem 2rem;
+      background: var(--green); color: var(--white);
+      font-weight: 700; font-size: var(--fs-sm);
+      text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: 2px; transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary-green:hover { background: var(--green-lt); color: var(--navy); transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-block; padding: 0.85rem 2rem;
+      border: 1px solid #3A5068; color: #8FA3B8;
+      font-weight: 600; font-size: var(--fs-sm);
+      text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase;
+      border-radius: 2px; transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-stats {
+      display: flex; gap: 3rem; flex-wrap: wrap;
+      margin-top: 5rem; padding-top: 2rem;
+      border-top: 1px solid #1E3148;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: var(--fs-3xl); font-weight: 700;
+      color: var(--white); line-height: 1;
+    }
+    .stat-label {
+      font-size: var(--fs-xs); text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--slate); margin-top: 0.25rem;
+    }
+
+    /* ══════════════════════════════
+       HERO — WOOD
+    ══════════════════════════════ */
+    #w-hero {
+      min-height: 100vh;
+      background: #0E1F13;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 11rem 6vw 6rem;
+      position: relative; overflow: hidden;
+    }
+    #w-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 65% 45%, rgba(82,183,136,0.10) 0%, transparent 65%),
+        repeating-linear-gradient(92deg, transparent, transparent 4px, rgba(82,183,136,0.04) 4px, rgba(82,183,136,0.04) 5px),
+        repeating-linear-gradient(88deg, transparent, transparent 14px, rgba(120,200,150,0.03) 14px, rgba(120,200,150,0.03) 15px),
+        repeating-linear-gradient(91deg, transparent, transparent 22px, rgba(60,140,90,0.05) 22px, rgba(60,140,90,0.05) 23px);
+      pointer-events: none;
+    }
+
+    /* ══════════════════════════════
+       ABOUT — BANKING
+    ══════════════════════════════ */
+    #b-about { background: var(--white); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center; margin-top: 3.5rem;
+    }
+    .about-body p { color: #445566; margin-bottom: 1rem; font-size: var(--fs-base); line-height: 1.8; }
+    .about-pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .pillar {
+      background: var(--cream); padding: 1.5rem;
+      border-left: 3px solid var(--gold);
+    }
+    .pillar.green-border { border-left-color: var(--green); }
+    .pillar-title {
+      font-weight: 700; font-size: var(--fs-sm);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--navy); margin-bottom: 0.35rem;
+    }
+    .pillar-desc { font-size: var(--fs-sm); color: var(--slate); }
+
+    /* ══════════════════════════════
+       SERVICES GRIDS
+    ══════════════════════════════ */
+    #b-services { background: var(--cream); }
+    #w-products  { background: var(--cream); }
+    .services-header { max-width: 640px; margin-bottom: 3.5rem; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px; background: var(--rule);
+    }
+    .service-card {
+      background: var(--white); padding: 2.5rem 2rem;
+      transition: background 0.2s;
+    }
+    .service-card:hover { background: var(--navy); }
+    .service-card.green-card:hover { background: #0E1F13; }
+    .service-card:hover .sc-title,
+    .service-card:hover .sc-desc,
+    .service-card:hover .sc-list li { color: var(--white); }
+    .sc-icon { font-size: 1.75rem; color: var(--gold); margin-bottom: 1.25rem; display: block; }
+    .green-card .sc-icon { color: var(--green); }
+    .service-card:hover .sc-icon { color: var(--gold); }
+    .green-card:hover .sc-icon { color: var(--green-lt); }
+    .sc-title {
+      font-family: 'Cormorant Garamond', serif; font-size: var(--fs-xl);
+      font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; transition: color 0.2s;
+    }
+    .sc-desc { font-size: var(--fs-sm); color: var(--slate); margin-bottom: 1rem; line-height: 1.7; transition: color 0.2s; }
+    .sc-list { list-style: none; padding: 0; }
+    .sc-list li {
+      font-size: var(--fs-xs); color: #778899;
+      padding: 0.3rem 0; border-top: 1px solid var(--rule);
+      letter-spacing: 0.04em; transition: color 0.2s;
+    }
+    .service-card:hover .sc-list li { border-color: #1E3148; }
+
+    /* ══════════════════════════════
+       CONTRACTS TABLE
+    ══════════════════════════════ */
+    #b-contracts { background: var(--navy); }
+    #b-contracts .section-title { color: var(--white); }
+    #b-contracts .section-lead  { color: #8FA3B8; }
+    .contracts-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; font-size: var(--fs-sm); }
+    .contracts-table thead tr { background: var(--gold); }
+    .contracts-table th {
+      padding: 0.9rem 1.5rem; text-align: left;
+      font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      font-size: var(--fs-xs); color: var(--navy);
+    }
+    .contracts-table tbody tr { border-bottom: 1px solid #1E3148; transition: background 0.15s; }
+    .contracts-table tbody tr:hover { background: #142233; }
+    .contracts-table td { padding: 1rem 1.5rem; color: #B0BCCC; }
+    .contracts-table td:first-child { color: var(--gold); font-weight: 700; }
+    .contracts-table td:nth-child(2) { color: var(--white); font-weight: 500; }
+
+    /* ══════════════════════════════
+       LOCATIONS (PRESERVED FROM USER VERSION WITH ENHANCEMENTS)
+    ══════════════════════════════ */
+    #b-locations { background: var(--white); }
+    .state-block { margin-bottom: 2.5rem; }
+    .state-name {
+      font-family: 'Cormorant Garamond', serif; font-size: var(--fs-lg);
+      font-weight: 700; color: var(--navy);
+      border-bottom: 2px solid var(--gold); padding-bottom: 0.4rem;
+      margin-bottom: 1rem; display: inline-block;
+    }
+    .location-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .location-tag {
+      font-size: var(--fs-xs); background: var(--cream); color: var(--slate);
+      padding: 0.3rem 0.75rem; border: 1px solid var(--rule);
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .loc-tab {
+      padding: 0.5rem 1.25rem; border: 1px solid var(--rule);
+      background: var(--white); color: var(--slate);
+      font-family: 'Manrope', sans-serif; font-size: var(--fs-xs);
+      font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+      cursor: pointer; border-radius: 2px; transition: all 0.2s;
+    }
+    .loc-tab:hover { border-color: var(--gold); color: var(--gold); }
+    .loc-tab-active { background: var(--gold); color: var(--navy) !important; border-color: var(--gold) !important; }
 
     /* ══════════════════════════════
        VALUES (WOOD)
     ══════════════════════════════ */
-    #w-values {
-      background: var(--wood-bg-soft);
-      background-size: auto, 560px 560px;
-      background-position: center, center;
-    }
+    #w-values { background: var(--white); }
     .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
     .value-card {
       background: var(--cream); padding: 2rem;
@@ -811,11 +412,7 @@
     /* ══════════════════════════════
        MISSION VISION (WOOD)
     ══════════════════════════════ */
-    #w-mission {
-      background: var(--wood-bg-dark);
-      background-size: auto, 640px 640px;
-      background-position: center, center;
-    }
+    #w-mission { background: #0E1F13; }
     #w-mission .section-title { color: var(--white); }
     .mvg-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 2.5rem; }
     .mvg-card { background: #162B1D; padding: 2rem; border-left: 3px solid var(--green); }
@@ -839,11 +436,7 @@
     ══════════════════════════════ */
     .team-section { padding: 5rem 6vw; }
     .team-section-banking { background: var(--navy); }
-    .team-section-wood {
-      background: var(--wood-bg-dark);
-      background-size: auto, 640px 640px;
-      background-position: center, center;
-    }
+    .team-section-wood    { background: #0E1F13; }
     .team-section .section-title { color: var(--white); }
     .team-grid { display: flex; gap: 2rem; margin-top: 2.5rem; flex-wrap: wrap; }
     .team-card { flex: 1; min-width: 240px; padding: 2rem; }
@@ -867,11 +460,7 @@
     ══════════════════════════════ */
     .contact-section { padding: 6rem 6vw; }
     .contact-section-banking { background: var(--cream); }
-    .contact-section-wood {
-      background: var(--wood-bg-soft);
-      background-size: auto, 560px 560px;
-      background-position: center, center;
-    }
+    .contact-section-wood    { background: #F3F8F5; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
     .contact-info p { color: var(--slate); line-height: 1.8; font-size: var(--fs-base); }
     .contact-detail { display: flex; gap: 0.75rem; align-items: flex-start; margin-top: 1.25rem; }
@@ -879,6 +468,11 @@
     .contact-detail a { text-decoration: none; font-weight: 600; }
     .contact-detail a.gold-link  { color: var(--gold); }
     .contact-detail a.green-link { color: var(--green); }
+    .contact-map-embed {
+      width: 100%; height: 280px; border: none;
+      border-radius: 4px; margin-top: 1.5rem;
+      filter: grayscale(0.2) contrast(0.95);
+    }
     .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .contact-form input,
     .contact-form textarea {
@@ -948,29 +542,40 @@
       .about-grid, .contact-grid, .mvg-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .services-grid, .values-grid, .culture-grid { grid-template-columns: 1fr 1fr; }
       .about-pillars { grid-template-columns: 1fr; }
-      .locations-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .map-svg-wrapper { max-width: 520px; margin: 0 auto; }
     }
     @media (max-width: 640px) {
       .services-grid, .values-grid, .culture-grid { grid-template-columns: 1fr; }
       .div-switcher { flex-direction: column; }
       .hero-stats { gap: 1.5rem; }
       .nav-links { display: none; }
-      section { padding: 4.5rem 5vw; }
-      .map-card { padding: 1.5rem 1rem 4.5rem; }
-      .map-legend { left: 1rem; bottom: 1rem; }
-      .map-reset-btn { top: 0.8rem; right: 0.8rem; }
-      .back-to-top { right: 1rem; bottom: 1rem; width: 42px; height: 42px; }
     }
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
   </style>
+
 </head>
+
 <body>
 
 <!-- ══ NAVIGATION ══ -->
 <nav id="main-nav" class="banking-mode">
   <div class="nav-top">
-    <a href="#" class="nav-logo" onclick="scrollToTop()">NidhiYugam<span>.</span></a>
+    <a href="#" class="nav-logo" onclick="scrollToTop()">
+      <svg class="nav-logo-svg" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="250" height="250" fill="#0D1B2A"/>
+        <rect x="0" y="0" width="250" height="250" fill="none" stroke="#2D6A4F" stroke-width="5"/>
+        <rect x="8" y="8" width="234" height="234" fill="none" stroke="#F7F3EE" stroke-width="1" opacity="0.4"/>
+        <polygon points="125,42 50,202 200,202" fill="#2D6A4F"/>
+        <polygon points="125,62 72,192 178,192" fill="#F7F3EE"/>
+        <polygon points="125,85 93,184 157,184" fill="#0D1B2A"/>
+        <polygon points="125,35 137,51 125,67 113,51" fill="#52B788"/>
+        <rect x="40" y="202" width="170" height="6" fill="#2D6A4F"/>
+        <rect x="90" y="202" width="70" height="6" fill="#F7F3EE" opacity="0.7"/>
+        <rect x="0" y="236" width="84" height="14" fill="#0D1B2A"/>
+        <rect x="84" y="236" width="83" height="14" fill="#2D6A4F"/>
+        <rect x="167" y="236" width="83" height="14" fill="#F7F3EE"/>
+      </svg>
+      <div class="nav-logo-text">Nidhi Yuga<span>Associates</span></div>
+    </a>
     <div class="div-switcher">
       <button class="div-btn active-banking" id="btn-banking" onclick="switchDiv('banking')">🏦 Banking & Finance</button>
       <button class="div-btn" id="btn-wood" onclick="switchDiv('wood')">🌲 Wood & Packaging</button>
@@ -1000,6 +605,20 @@
 
   <!-- HERO -->
   <section id="b-hero">
+    <svg class="hero-logo-mark" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" style="width:90px;height:90px;margin-bottom:2rem;opacity:0.92;">
+      <rect x="0" y="0" width="250" height="250" fill="#0D1B2A"/>
+      <rect x="0" y="0" width="250" height="250" fill="none" stroke="#2D6A4F" stroke-width="5"/>
+      <rect x="8" y="8" width="234" height="234" fill="none" stroke="#F7F3EE" stroke-width="1" opacity="0.4"/>
+      <polygon points="125,42 50,202 200,202" fill="#2D6A4F"/>
+      <polygon points="125,62 72,192 178,192" fill="#F7F3EE"/>
+      <polygon points="125,85 93,184 157,184" fill="#0D1B2A"/>
+      <polygon points="125,35 137,51 125,67 113,51" fill="#52B788"/>
+      <rect x="40" y="202" width="170" height="6" fill="#2D6A4F"/>
+      <rect x="90" y="202" width="70" height="6" fill="#F7F3EE" opacity="0.7"/>
+      <rect x="0" y="236" width="84" height="14" fill="#0D1B2A"/>
+      <rect x="84" y="236" width="83" height="14" fill="#2D6A4F"/>
+      <rect x="167" y="236" width="83" height="14" fill="#F7F3EE"/>
+    </svg>
     <p class="hero-eyebrow">Est. 2020 · Banking & Financial Process Solutions</p>
     <h1 class="hero-title">Driven by <em>Expertise,</em><br>Designed for Impact.</h1>
     <p class="hero-tagline">Seamless banking backend operations, manpower outsourcing, and payment collections — across South India and beyond.</p>
@@ -1022,9 +641,9 @@
     <div class="rule-gold"></div>
     <div class="about-grid">
       <div class="about-body">
-        <p><strong>NidhiYugam Associates</strong> was incorporated in 2020 as a successor to <strong>DBN Process Solutions (P) Limited</strong>, by its former directors. We carry forward more than two decades of hands-on banking operations experience.</p>
+        <p><strong>Nidhi Yuga Associates</strong> was incorporated in 2020 as a successor to <strong>DBN Process Solutions (P) Limited</strong>, by its former directors. We carry forward more than two decades of hands-on banking operations experience.</p>
         <p>Our primary goal is to provide banking solutions and services to organizations and businesses for the effective use of Banking and Financial Institutions. We hire competent and inventive professionals to meet today's demanding IT and banking requirements.</p>
-        <p>Team NidhiYugam is motivated by one thing: exceeding client expectations.</p>
+        <p>Team Nidhi Yuga Associates is motivated by one thing: exceeding client expectations.</p>
       </div>
       <div class="about-pillars">
         <div class="pillar"><div class="pillar-title">Process Management</div><div class="pillar-desc">End-to-end banking process handling with precision and compliance.</div></div>
@@ -1117,166 +736,191 @@
     </table>
   </section>
 
-    <!-- LOCATIONS -->
+  <!-- LOCATIONS -->
   <section id="b-locations">
     <p class="section-eyebrow">Reach</p>
-    <h2 class="section-title">Operational Network & Hubs</h2>
+    <h2 class="section-title">185+ Locations Across South India</h2>
     <div class="rule-gold"></div>
-    <p class="section-lead">Our operational network spans across Tamil Nadu, Karnataka, Kerala, Maharashtra, and beyond, with local teams on the ground.</p>
-    
-    <div class="locations-layout">
-      <!-- Left Column: Map Card -->
-      <div class="map-card">
-        <div class="map-svg-wrapper" id="map-wrapper">
-          <div class="map-inner" id="map-inner">
-            <img src="india_svg_map.svg" alt="India Map Outline" />
-          </div>
-          <!-- Pins overlay generated dynamically -->
-        </div>
-        <button class="map-reset-btn" id="map-reset" type="button">Reset Map</button>
-        
-        <div class="map-legend">
-          <h4>Network Reach</h4>
-          <p>185+ Locations Served</p>
-        </div>
-      </div>
-      
-      <!-- Right Column: Hubs Grid -->
-      <div class="hubs-column">
-        <h3 class="hubs-title">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-          </svg>
-          Active Operational Hubs
-        </h3>
-        
-        <div class="hubs-grid">
-          <!-- Card: Chennai -->
-          <div class="hub-card" data-hub="chennai">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <div class="hub-info">
-              <span class="hub-prefix">Hub</span>
-              <span class="hub-name">Chennai (TN)</span>
-            </div>
-          </div>
-          
-          <!-- Card: Bangalore -->
-          <div class="hub-card" data-hub="bangalore">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <div class="hub-info">
-              <span class="hub-prefix">Hub</span>
-              <span class="hub-name">Bangalore (KA)</span>
-            </div>
-          </div>
-          
-          <!-- Card: Kochi -->
-          <div class="hub-card" data-hub="kochi">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <div class="hub-info">
-              <span class="hub-prefix">Hub</span>
-              <span class="hub-name">Kochi (KL)</span>
-            </div>
-          </div>
-          
-          <!-- Card: Mumbai -->
-          <div class="hub-card" data-hub="mumbai">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <div class="hub-info">
-              <span class="hub-prefix">Hub</span>
-              <span class="hub-name">Mumbai (MH)</span>
-            </div>
-          </div>
-          
-          <!-- Card: Pune -->
-          <div class="hub-card" data-hub="pune">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <div class="hub-info">
-              <span class="hub-prefix">Hub</span>
-              <span class="hub-name">Pune (MH)</span>
-            </div>
-          </div>
-          
-          <!-- Card: Coimbatore -->
-          <div class="hub-card" data-hub="coimbatore">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <div class="hub-info">
-              <span class="hub-prefix">Hub</span>
-              <span class="hub-name">Coimbatore (TN)</span>
-            </div>
-          </div>
-          
-          <!-- Card: Madurai -->
-          <div class="hub-card" data-hub="madurai">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <div class="hub-info">
-              <span class="hub-prefix">Hub</span>
-              <span class="hub-name">Madurai (TN)</span>
-            </div>
-          </div>
-          
-          <!-- Card: Mangalore -->
-          <div class="hub-card" data-hub="mangalore">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <div class="hub-info">
-              <span class="hub-prefix">Hub</span>
-              <span class="hub-name">Mangalore (KA)</span>
-            </div>
-          </div>
-          
-          <!-- Card: Trivandrum -->
-          <div class="hub-card" data-hub="trivandrum">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <div class="hub-info">
-              <span class="hub-prefix">Hub</span>
-              <span class="hub-name">Trivandrum (KL)</span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <p class="section-lead" style="margin-bottom:2.5rem">Our operational network spans Tamil Nadu, Puducherry, Karnataka, Kerala, Andhra Pradesh, Telangana, Goa, Maharashtra and beyond. Click a state tab to explore locations.</p>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;" id="state-tabs">
+      <button onclick="showState('tn')" id="tab-tn" class="loc-tab loc-tab-active">Tamil Nadu</button>
+      <button onclick="showState('ka')" id="tab-ka" class="loc-tab">Karnataka</button>
+      <button onclick="showState('kl')" id="tab-kl" class="loc-tab">Kerala</button>
+      <button onclick="showState('mh')" id="tab-mh" class="loc-tab">Maharashtra</button>
+      <button onclick="showState('py')" id="tab-py" class="loc-tab">Puducherry</button>
+      <button onclick="showState('ap')" id="tab-ap" class="loc-tab">Andhra Pradesh</button>
+      <button onclick="showState('tg')" id="tab-tg" class="loc-tab">Telangana</button>
+      <button onclick="showState('ga')" id="tab-ga" class="loc-tab">Goa</button>
     </div>
-    
-    <h3 class="minor-locations-header">All Served Locations (185+)</h3>
-    
-    <div class="state-block">
-      <div class="state-name">Tamil Nadu</div>
+    <div id="loc-tn" class="loc-tags-panel">
       <div class="location-tags">
-        <span class="location-tag">Ambur</span><span class="location-tag">Arakkonam</span><span class="location-tag">Chennai</span><span class="location-tag">Chidambaram</span><span class="location-tag">Coimbatore</span><span class="location-tag">Cuddalore</span><span class="location-tag">Dindigul</span><span class="location-tag">Erode</span><span class="location-tag">Kanchipuram</span><span class="location-tag">Karaikudi</span><span class="location-tag">Karur</span><span class="location-tag">Krishnagiri</span><span class="location-tag">Kumbakonam</span><span class="location-tag">Madurai</span><span class="location-tag">Mayiladuthurai</span><span class="location-tag">Nagapattinam</span><span class="location-tag">Namakkal</span><span class="location-tag">Ooty</span><span class="location-tag">Palani</span><span class="location-tag">Pondicherry</span><span class="location-tag">Salem</span><span class="location-tag">Sivakasi</span><span class="location-tag">Thanjavur</span><span class="location-tag">Theni</span><span class="location-tag">Tirunelveli</span><span class="location-tag">Tirupur</span><span class="location-tag">Tiruvannamalai</span><span class="location-tag">Trichy</span><span class="location-tag">Tuticorin</span><span class="location-tag">Villupuram</span><span class="location-tag">Virudhunagar</span>
+        <span class="location-tag">Ambur</span><span class="location-tag">Arakkonam</span><span class="location-tag">Chennai</span><span class="location-tag">Chidambaram</span><span class="location-tag">Coimbatore</span><span class="location-tag">Cuddalore</span><span class="location-tag">Dindigul</span><span class="location-tag">Erode</span><span class="location-tag">Kanchipuram</span><span class="location-tag">Karaikudi</span><span class="location-tag">Karur</span><span class="location-tag">Krishnagiri</span><span class="location-tag">Kumbakonam</span><span class="location-tag">Madurai</span><span class="location-tag">Mayiladuthurai</span><span class="location-tag">Nagapattinam</span><span class="location-tag">Namakkal</span><span class="location-tag">Ooty</span><span class="location-tag">Palani</span><span class="location-tag">Salem</span><span class="location-tag">Sivakasi</span><span class="location-tag">Thanjavur</span><span class="location-tag">Theni</span><span class="location-tag">Tirunelveli</span><span class="location-tag">Tirupur</span><span class="location-tag">Tiruvannamalai</span><span class="location-tag">Trichy</span><span class="location-tag">Tuticorin</span><span class="location-tag">Villupuram</span><span class="location-tag">Virudhunagar</span>
       </div>
     </div>
-    <div class="state-block">
-      <div class="state-name">Karnataka</div>
+    <div id="loc-ka" class="loc-tags-panel" style="display:none">
       <div class="location-tags">
         <span class="location-tag">Bangalore</span><span class="location-tag">Belgaum</span><span class="location-tag">Bellary</span><span class="location-tag">Bidar</span><span class="location-tag">Bijapur</span><span class="location-tag">Chitradurga</span><span class="location-tag">Davanagere</span><span class="location-tag">Dharwad</span><span class="location-tag">Gulbarga</span><span class="location-tag">Hassan</span><span class="location-tag">Haveri</span><span class="location-tag">Hospet</span><span class="location-tag">Hubli</span><span class="location-tag">Kolar</span><span class="location-tag">Mangalore</span><span class="location-tag">Manipal</span><span class="location-tag">Mysore</span><span class="location-tag">Raichur</span><span class="location-tag">Shimoga</span><span class="location-tag">Tumkur</span><span class="location-tag">Udupi</span>
       </div>
     </div>
-    <div class="state-block">
-      <div class="state-name">Kerala</div>
+    <div id="loc-kl" class="loc-tags-panel" style="display:none">
       <div class="location-tags">
         <span class="location-tag">Alapuzha</span><span class="location-tag">Calicut</span><span class="location-tag">Chalakudy</span><span class="location-tag">Kochi</span><span class="location-tag">Kannur</span><span class="location-tag">Kasargod</span><span class="location-tag">Kollam</span><span class="location-tag">Kottayam</span><span class="location-tag">Palakkad</span><span class="location-tag">Trichur</span><span class="location-tag">Trivandrum</span><span class="location-tag">Pathanamthitta</span>
       </div>
     </div>
-    <div class="state-block">
-      <div class="state-name">Maharashtra & Others</div>
-      <div class="location-tags"><span class="location-tag">Mumbai</span><span class="location-tag">Pune</span></div>
+    <div id="loc-mh" class="loc-tags-panel" style="display:none">
+      <div class="location-tags">
+        <span class="location-tag">Mumbai</span><span class="location-tag">Pune</span>
+      </div>
     </div>
+    <div id="loc-py" class="loc-tags-panel" style="display:none">
+      <div class="location-tags">
+        <span class="location-tag">Puducherry</span><span class="location-tag">Karaikal</span><span class="location-tag">Mahe</span><span class="location-tag">Yanam</span>
+      </div>
+    </div>
+    <div id="loc-ap" class="loc-tags-panel" style="display:none">
+      <div class="location-tags">
+        <span class="location-tag">Visakhapatnam</span><span class="location-tag">Vijayawada</span><span class="location-tag">Guntur</span><span class="location-tag">Nellore</span><span class="location-tag">Kurnool</span><span class="location-tag">Rajahmundry</span><span class="location-tag">Kakinada</span><span class="location-tag">Tirupati</span><span class="location-tag">Anantapur</span><span class="location-tag">Kadapa</span><span class="location-tag">Eluru</span><span class="location-tag">Ongole</span><span class="location-tag">Nandyal</span><span class="location-tag">Machilipatnam</span><span class="location-tag">Srikakulam</span><span class="location-tag">Vizianagaram</span><span class="location-tag">Chittoor</span><span class="location-tag">Hindupur</span><span class="location-tag">Bhimavaram</span><span class="location-tag">Amaravati</span>
+      </div>
+    </div>
+    <div id="loc-tg" class="loc-tags-panel" style="display:none">
+      <div class="location-tags">
+        <span class="location-tag">Hyderabad</span><span class="location-tag">Warangal</span><span class="location-tag">Nizamabad</span><span class="location-tag">Karimnagar</span><span class="location-tag">Ramagundam</span><span class="location-tag">Khammam</span><span class="location-tag">Mahbubnagar</span><span class="location-tag">Nalgonda</span><span class="location-tag">Adilabad</span><span class="location-tag">Suryapet</span><span class="location-tag">Miryalaguda</span><span class="location-tag">Siddipet</span><span class="location-tag">Jagtial</span><span class="location-tag">Mancherial</span><span class="location-tag">Sangareddy</span>
+      </div>
+    </div>
+    <div id="loc-ga" class="loc-tags-panel" style="display:none">
+      <div class="location-tags">
+        <span class="location-tag">Panaji</span><span class="location-tag">Margao</span><span class="location-tag">Vasco da Gama</span><span class="location-tag">Mapusa</span><span class="location-tag">Ponda</span><span class="location-tag">Bicholim</span><span class="location-tag">Curchorem</span><span class="location-tag">Cuncolim</span>
+      </div>
+    </div>
+    <div id="locations-map" style="width:100%;height:480px;margin-top:2rem;border-radius:4px;overflow:hidden;border:1px solid var(--rule);"></div>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+    (function(){
+      var stateData = {
+        tn: {
+          name: 'Tamil Nadu',
+          center: [11.1271, 78.6569], zoom: 7,
+          cities: [
+            {n:'Ambur',ll:[12.7916,78.7115]},{n:'Arakkonam',ll:[13.0826,79.6695]},{n:'Chennai',ll:[13.0827,80.2707]},
+            {n:'Chidambaram',ll:[11.3993,79.6939]},{n:'Coimbatore',ll:[11.0168,76.9558]},{n:'Cuddalore',ll:[11.7480,79.7714]},
+            {n:'Dindigul',ll:[10.3673,77.9803]},{n:'Erode',ll:[11.3410,77.7172]},{n:'Kanchipuram',ll:[12.8333,79.7167]},
+            {n:'Karaikudi',ll:[10.0744,78.7754]},{n:'Karur',ll:[10.9601,78.0766]},{n:'Krishnagiri',ll:[12.5186,78.2137]},
+            {n:'Kumbakonam',ll:[10.9602,79.3845]},{n:'Madurai',ll:[9.9252,78.1198]},{n:'Mayiladuthurai',ll:[11.1035,79.6518]},
+            {n:'Nagapattinam',ll:[10.7672,79.8420]},{n:'Namakkal',ll:[11.2167,78.1667]},{n:'Ooty',ll:[11.4102,76.6950]},
+            {n:'Palani',ll:[10.4472,77.5209]},{n:'Salem',ll:[11.6643,78.1460]},
+            {n:'Sivakasi',ll:[9.4533,77.7978]},{n:'Thanjavur',ll:[10.7870,79.1378]},{n:'Theni',ll:[10.0104,77.4770]},
+            {n:'Tirunelveli',ll:[8.7139,77.7567]},{n:'Tirupur',ll:[11.1085,77.3411]},{n:'Tiruvannamalai',ll:[12.2253,79.0747]},
+            {n:'Trichy',ll:[10.7905,78.7047]},{n:'Tuticorin',ll:[8.7642,78.1348]},{n:'Villupuram',ll:[11.9401,79.4929]},
+            {n:'Virudhunagar',ll:[9.5680,77.9624]}
+          ]
+        },
+        ka: {
+          name: 'Karnataka',
+          center: [15.3173, 75.7139], zoom: 7,
+          cities: [
+            {n:'Bangalore',ll:[12.9716,77.5946]},{n:'Belgaum',ll:[15.8497,74.4977]},{n:'Bellary',ll:[15.1394,76.9214]},
+            {n:'Bidar',ll:[17.9104,77.5199]},{n:'Bijapur',ll:[16.8302,75.7100]},{n:'Chitradurga',ll:[14.2251,76.3980]},
+            {n:'Davanagere',ll:[14.4644,75.9218]},{n:'Dharwad',ll:[15.4589,75.0078]},{n:'Gulbarga',ll:[17.3297,76.8343]},
+            {n:'Hassan',ll:[13.0033,76.1004]},{n:'Haveri',ll:[14.7955,75.3996]},{n:'Hospet',ll:[15.2689,76.3909]},
+            {n:'Hubli',ll:[15.3647,75.1240]},{n:'Kolar',ll:[13.1367,78.1294]},{n:'Mangalore',ll:[12.9141,74.8560]},
+            {n:'Manipal',ll:[13.3528,74.7911]},{n:'Mysore',ll:[12.2958,76.6394]},{n:'Raichur',ll:[16.2120,77.3566]},
+            {n:'Shimoga',ll:[13.9299,75.5681]},{n:'Tumkur',ll:[13.3379,77.1173]},{n:'Udupi',ll:[13.3409,74.7421]}
+          ]
+        },
+        kl: {
+          name: 'Kerala',
+          center: [10.8505, 76.2711], zoom: 7,
+          cities: [
+            {n:'Alapuzha',ll:[9.4981,76.3388]},{n:'Calicut',ll:[11.2588,75.7804]},{n:'Chalakudy',ll:[10.3006,76.3313]},
+            {n:'Kochi',ll:[9.9312,76.2673]},{n:'Kannur',ll:[11.8745,75.3704]},{n:'Kasargod',ll:[12.4996,74.9869]},
+            {n:'Kollam',ll:[8.8932,76.6141]},{n:'Kottayam',ll:[9.5916,76.5222]},{n:'Palakkad',ll:[10.7867,76.6548]},
+            {n:'Trichur',ll:[10.5276,76.2144]},{n:'Trivandrum',ll:[8.5241,76.9366]},{n:'Pathanamthitta',ll:[9.2648,76.7870]}
+          ]
+        },
+        mh: {
+          name: 'Maharashtra',
+          center: [19.0760, 75.0], zoom: 6,
+          cities: [
+            {n:'Mumbai',ll:[19.0760,72.8777]},{n:'Pune',ll:[18.5204,73.8567]}
+          ]
+        },
+        py: {
+          name: 'Puducherry',
+          center: [11.9416,79.8083], zoom: 9,
+          cities: [
+            {n:'Puducherry',ll:[11.9416,79.8083]},{n:'Karaikal',ll:[10.9254,79.8380]},{n:'Mahe',ll:[11.7010,75.5367]},{n:'Yanam',ll:[16.7333,82.2167]}
+          ]
+        },
+        ap: {
+          name: 'Andhra Pradesh',
+          center: [15.9129,79.7400], zoom: 7,
+          cities: [
+            {n:'Visakhapatnam',ll:[17.6868,83.2185]},{n:'Vijayawada',ll:[16.5062,80.6480]},{n:'Guntur',ll:[16.3067,80.4365]},
+            {n:'Nellore',ll:[14.4426,79.9865]},{n:'Kurnool',ll:[15.8281,78.0373]},{n:'Rajahmundry',ll:[17.0005,81.8040]},
+            {n:'Kakinada',ll:[16.9891,82.2475]},{n:'Tirupati',ll:[13.6288,79.4192]},{n:'Anantapur',ll:[14.6819,77.6006]},
+            {n:'Kadapa',ll:[14.4673,78.8242]},{n:'Eluru',ll:[16.7107,81.0952]},{n:'Ongole',ll:[15.5057,80.0499]},
+            {n:'Nandyal',ll:[15.4786,78.4836]},{n:'Machilipatnam',ll:[16.1875,81.1389]},{n:'Srikakulam',ll:[18.2969,83.8956]},
+            {n:'Vizianagaram',ll:[18.1067,83.3956]},{n:'Chittoor',ll:[13.2172,79.1003]},{n:'Hindupur',ll:[13.8290,77.4916]},
+            {n:'Bhimavaram',ll:[16.5449,81.5212]},{n:'Amaravati',ll:[16.5730,80.3564]}
+          ]
+        },
+        tg: {
+          name: 'Telangana',
+          center: [18.1124,79.0193], zoom: 7,
+          cities: [
+            {n:'Hyderabad',ll:[17.3850,78.4867]},{n:'Warangal',ll:[17.9784,79.5941]},{n:'Nizamabad',ll:[18.6725,78.0941]},
+            {n:'Karimnagar',ll:[18.4386,79.1288]},{n:'Ramagundam',ll:[18.7530,79.4736]},{n:'Khammam',ll:[17.2473,80.1514]},
+            {n:'Mahbubnagar',ll:[16.7376,77.9874]},{n:'Nalgonda',ll:[17.0575,79.2673]},{n:'Adilabad',ll:[19.6641,78.5320]},
+            {n:'Suryapet',ll:[17.1410,79.6218]},{n:'Miryalaguda',ll:[16.8726,79.5668]},{n:'Siddipet',ll:[18.1018,78.8520]},
+            {n:'Jagtial',ll:[18.7947,78.9137]},{n:'Mancherial',ll:[18.8759,79.4622]},{n:'Sangareddy',ll:[17.6247,78.0861]}
+          ]
+        },
+        ga: {
+          name: 'Goa',
+          center: [15.2993,74.1240], zoom: 9,
+          cities: [
+            {n:'Panaji',ll:[15.4909,73.8278]},{n:'Margao',ll:[15.2832,73.9862]},{n:'Vasco da Gama',ll:[15.3982,73.8113]},
+            {n:'Mapusa',ll:[15.5957,73.8091]},{n:'Ponda',ll:[15.4034,74.0142]},{n:'Bicholim',ll:[15.5966,73.9595]},
+            {n:'Curchorem',ll:[15.1744,74.1060]},{n:'Cuncolim',ll:[15.1809,73.9978]}
+          ]
+        }
+      };
+
+      var map = L.map('locations-map').setView([13.5, 78.5], 6);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors', maxZoom: 18
+      }).addTo(map);
+
+      var goldIcon = L.divIcon({
+        className:'',
+        html:'<div style="width:10px;height:10px;background:#C8963E;border:2px solid #fff;border-radius:50%;box-shadow:0 1px 4px rgba(0,0,0,0.4)"></div>',
+        iconSize:[10,10], iconAnchor:[5,5]
+      });
+
+      var currentMarkers = [];
+
+      function clearMarkers(){
+        currentMarkers.forEach(function(m){ map.removeLayer(m); });
+        currentMarkers = [];
+      }
+
+      window.showStateMap = function(code){
+        clearMarkers();
+        var d = stateData[code];
+        if(!d) return;
+        map.setView(d.center, d.zoom);
+        d.cities.forEach(function(c){
+          var m = L.marker(c.ll, {icon: goldIcon}).addTo(map);
+          m.bindPopup('<strong style="font-family:serif;font-size:13px;">'+c.n+'</strong><br><span style="font-size:11px;color:#666;">'+d.name+'</span>');
+          currentMarkers.push(m);
+        });
+      };
+
+      showStateMap('tn');
+      window._locMap = map;
+    })();
+    </script>
   </section>
 
   <!-- CULTURE -->
@@ -1310,6 +954,16 @@
         <div class="team-name">Dinesh KC</div>
         <div class="team-role-banking">Director – Client Relations & Operations</div>
       </div>
+      <div class="team-card team-card-banking">
+        <div class="team-avatar avatar-gold">SR</div>
+        <div class="team-name">Mrs. Srilatha RS</div>
+        <div class="team-role-banking">Director</div>
+      </div>
+      <div class="team-card team-card-banking">
+        <div class="team-avatar avatar-gold">SK</div>
+        <div class="team-name">Shiby KP</div>
+        <div class="team-role-banking">Director</div>
+      </div>
     </div>
     <p style="color:#8FA3B8;margin-top:2rem;max-width:600px;font-size:var(--fs-sm);font-style:italic;">"Experience and knowledge are an extremely effective combination. Our awareness of our clients' requirements, in tandem with our technical expertise, has enabled us to provide banking and IT solutions to a large number of satisfied customers."</p>
   </section>
@@ -1322,9 +976,13 @@
     <div class="contact-grid">
       <div class="contact-info">
         <p>We would love to hear about your requirements. Reach out and our team will get back to you promptly.</p>
-        <div class="contact-detail"><span class="icon">📍</span><p>Old No. 111, New No. 146, Chinnamman Kovil Street,<br>Avadi, Tiruvallur – 600054, Chennai, Tamil Nadu</p></div>
+        <div class="contact-detail"><span class="icon">📍</span><p>Kannappilly House, Sreemoolanagaram PO,<br>Nr St Sebastian Church, Parathetta,<br>Aluva, Kerala – 683580, India</p></div>
         <div class="contact-detail"><span class="icon">📞</span><p><a href="tel:+919895300666" class="gold-link">+91 9895 300 666</a><br><a href="tel:+919895020666" class="gold-link">+91 9895 020 666</a></p></div>
-        <div class="contact-detail"><span class="icon">✉️</span><p><a href="mailto:info@NidhiYugamsolutions.in" class="gold-link">info@NidhiYugamsolutions.in</a></p></div>
+        <div class="contact-detail"><span class="icon">✉️</span><p><a href="mailto:sales@nidhiyuga.in" class="gold-link">sales@nidhiyuga.in</a></p></div>
+        <iframe class="contact-map-embed"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=76.3300%2C10.0800%2C76.3700%2C10.1100&layer=mapnik&marker=10.0980%2C76.3490"
+          title="Office Location – Aluva, Kerala" loading="lazy" allowfullscreen></iframe>
+        <a href="https://www.openstreetmap.org/?mlat=10.0980&mlon=76.3490#map=15/10.0980/76.3490" target="_blank" rel="noopener" style="font-size:var(--fs-xs);color:var(--gold);text-decoration:none;display:inline-block;margin-top:0.4rem;letter-spacing:0.05em;">&#8599; View larger map</a>
       </div>
       <div class="contact-form">
         <input type="text" placeholder="Your Name" />
@@ -1345,6 +1003,20 @@
 
   <!-- HERO -->
   <section id="w-hero">
+    <svg class="hero-logo-mark" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg" style="width:90px;height:90px;margin-bottom:2rem;opacity:0.92;">
+      <rect x="0" y="0" width="250" height="250" fill="#0D1B2A"/>
+      <rect x="0" y="0" width="250" height="250" fill="none" stroke="#2D6A4F" stroke-width="5"/>
+      <rect x="8" y="8" width="234" height="234" fill="none" stroke="#F7F3EE" stroke-width="1" opacity="0.4"/>
+      <polygon points="125,42 50,202 200,202" fill="#2D6A4F"/>
+      <polygon points="125,62 72,192 178,192" fill="#F7F3EE"/>
+      <polygon points="125,85 93,184 157,184" fill="#0D1B2A"/>
+      <polygon points="125,35 137,51 125,67 113,51" fill="#52B788"/>
+      <rect x="40" y="202" width="170" height="6" fill="#2D6A4F"/>
+      <rect x="90" y="202" width="70" height="6" fill="#F7F3EE" opacity="0.7"/>
+      <rect x="0" y="236" width="84" height="14" fill="#0D1B2A"/>
+      <rect x="84" y="236" width="83" height="14" fill="#2D6A4F"/>
+      <rect x="167" y="236" width="83" height="14" fill="#F7F3EE"/>
+    </svg>
     <p class="hero-eyebrow" style="color:var(--green-lt)">Est. 2020 · Wood & Packaging Solutions</p>
     <h1 class="hero-title">Quality Wood.<br><em class="green">Delivered Right.</em></h1>
     <p class="hero-tagline">Premium plywood, pallets, MDF boards, and packaging materials tailored for India's construction and packaging industries.</p>
@@ -1367,7 +1039,7 @@
     <div class="rule-green"></div>
     <div class="about-grid">
       <div class="about-body">
-        <p><strong>NidhiYugam Associates</strong> is a dynamic, customer-focused organization delivering premium-quality wood and wood-based solutions to diverse industries. Since 2020, we have served businesses in Construction and Packaging with an unwavering commitment to quality, reliability, and customer satisfaction.</p>
+        <p><strong>Nidhi Yuga Associates</strong> is a dynamic, customer-focused organization delivering premium-quality wood and wood-based solutions to diverse industries. Since 2020, we have served businesses in Construction and Packaging with an unwavering commitment to quality, reliability, and customer satisfaction.</p>
         <p>Our team of qualified professionals brings deep industry knowledge to every project, enabling us to respond effectively to evolving market demands and consistently exceed client expectations.</p>
         <p>We have cultivated strategic partnerships built on mutual trust, transparency, and long-term collaboration — the cornerstone of everything we do.</p>
       </div>
@@ -1478,6 +1150,16 @@
         <div class="team-name">Dinesh KC</div>
         <div class="team-role-wood">Director — Client Relations & Operations</div>
       </div>
+      <div class="team-card team-card-wood">
+        <div class="team-avatar avatar-green">SR</div>
+        <div class="team-name">Mrs. Srilatha RS</div>
+        <div class="team-role-wood">Director</div>
+      </div>
+      <div class="team-card team-card-wood">
+        <div class="team-avatar avatar-green">SK</div>
+        <div class="team-name">Shiby KP</div>
+        <div class="team-role-wood">Director</div>
+      </div>
     </div>
     <p style="color:#7AAF8A;margin-top:2rem;max-width:600px;font-size:var(--fs-sm);font-style:italic;">"Experienced professionals committed to delivering excellence at every stage — from sourcing to final delivery."</p>
   </section>
@@ -1490,9 +1172,13 @@
     <div class="contact-grid">
       <div class="contact-info">
         <p>Looking for quality wood and packaging solutions? Send us your requirements and we'll get back to you with the best options.</p>
-        <div class="contact-detail"><span class="icon">📍</span><p>Old No. 111, New No. 146, Chinnamman Kovil Street,<br>Avadi, Tiruvallur – 600054, Chennai, Tamil Nadu, India</p></div>
+        <div class="contact-detail"><span class="icon">📍</span><p>Kannappilly House, Sreemoolanagaram PO,<br>Nr St Sebastian Church, Parathetta,<br>Aluva, Kerala – 683580, India</p></div>
         <div class="contact-detail"><span class="icon">📞</span><p><a href="tel:+919895300666" class="green-link">+91 9895 300 666</a><br><a href="tel:+919895020666" class="green-link">+91 9895 020 666</a></p></div>
-        <div class="contact-detail"><span class="icon">✉️</span><p><a href="mailto:info@NidhiYugamsolutions.in" class="green-link">info@NidhiYugamsolutions.in</a></p></div>
+        <div class="contact-detail"><span class="icon">✉️</span><p><a href="mailto:sales@nidhiyuga.in" class="green-link">sales@nidhiyuga.in</a></p></div>
+        <iframe class="contact-map-embed"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=76.3300%2C10.0800%2C76.3700%2C10.1100&layer=mapnik&marker=10.0980%2C76.3490"
+          title="Office Location – Aluva, Kerala" loading="lazy" allowfullscreen></iframe>
+        <a href="https://www.openstreetmap.org/?mlat=10.0980&mlon=76.3490#map=15/10.0980/76.3490" target="_blank" rel="noopener" style="font-size:var(--fs-xs);color:var(--green);text-decoration:none;display:inline-block;margin-top:0.4rem;letter-spacing:0.05em;">&#8599; View larger map</a>
       </div>
       <div class="contact-form wood-form">
         <input type="text" placeholder="Your Name" />
@@ -1508,14 +1194,30 @@
 
 <!-- FOOTER -->
 <footer>
-  <div>
-    <div class="footer-brand">NidhiYugam<span class="g"> Solutions LLP</span></div>
-    <div class="footer-badges" style="margin-top:0.5rem">
-      <span class="badge badge-gold">Banking & Finance</span>
-      <span class="badge badge-green">Wood & Packaging</span>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <svg style="height:56px;width:auto;" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+      <rect x="0" y="0" width="250" height="250" fill="#0D1B2A"/>
+      <rect x="0" y="0" width="250" height="250" fill="none" stroke="#2D6A4F" stroke-width="5"/>
+      <rect x="8" y="8" width="234" height="234" fill="none" stroke="#F7F3EE" stroke-width="1" opacity="0.4"/>
+      <polygon points="125,42 50,202 200,202" fill="#2D6A4F"/>
+      <polygon points="125,62 72,192 178,192" fill="#F7F3EE"/>
+      <polygon points="125,85 93,184 157,184" fill="#0D1B2A"/>
+      <polygon points="125,35 137,51 125,67 113,51" fill="#52B788"/>
+      <rect x="40" y="202" width="170" height="6" fill="#2D6A4F"/>
+      <rect x="90" y="202" width="70" height="6" fill="#F7F3EE" opacity="0.7"/>
+      <rect x="0" y="236" width="84" height="14" fill="#0D1B2A"/>
+      <rect x="84" y="236" width="83" height="14" fill="#2D6A4F"/>
+      <rect x="167" y="236" width="83" height="14" fill="#F7F3EE"/>
+    </svg>
+    <div>
+      <div class="footer-brand">Nidhi Yuga<span class="g"> Associates</span></div>
+      <div class="footer-badges" style="margin-top:0.5rem">
+        <span class="badge badge-gold">Banking & Finance</span>
+        <span class="badge badge-green">Wood & Packaging</span>
+      </div>
     </div>
   </div>
-  <p>© 2025 NidhiYugam Associates. All rights reserved.<br>Old No.111, New No.146, Chinnamman Kovil Street, Avadi, Chennai – 600054</p>
+  <p>© 2025 Nidhi Yuga Associates. All rights reserved.<br>Kannappilly House, Sreemoolanagaram PO, Aluva, Kerala – 683580</p>
 </footer>
 
 <button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top">↑</button>
@@ -1558,765 +1260,22 @@
   const backToTopBtn = document.getElementById('back-to-top');
   if (backToTopBtn) {
     window.addEventListener('scroll', () => {
-      backToTopBtn.classList.toggle('visible', window.scrollY > 300);
+      backToTopBtn.classList.toggle('visible', window.scrollY > 400);
     }, { passive: true });
     backToTopBtn.addEventListener('click', scrollToTop);
   }
 
-  // Geocoded data for all towns
-  const locationsData = {
-  "Tamil Nadu": [
-    {
-      "name": "Ambur",
-      "lat": 12.7874171,
-      "lon": 78.7188211,
-      "left": 34.58,
-      "top": 82.47
-    },
-    {
-      "name": "Arakkonam",
-      "lat": 13.0839782,
-      "lon": 79.6700892,
-      "left": 37.12,
-      "top": 82.67
-    },
-    {
-      "name": "Chennai",
-      "lat": 13.0836939,
-      "lon": 80.270186,
-      "left": 38.7,
-      "top": 83.42
-    },
-    {
-      "name": "Chidambaram",
-      "lat": 11.3920706,
-      "lon": 79.703025,
-      "left": 37.11,
-      "top": 88.33
-    },
-    {
-      "name": "Coimbatore",
-      "lat": 11.0018115,
-      "lon": 76.9628425,
-      "left": 29.84,
-      "top": 86.22
-    },
-    {
-      "name": "Cuddalore",
-      "lat": 11.5202071,
-      "lon": 79.3396356,
-      "left": 36.15,
-      "top": 87.45
-    },
-    {
-      "name": "Dindigul",
-      "lat": 10.4256896,
-      "lon": 77.815664,
-      "left": 32.06,
-      "top": 89.19
-    },
-    {
-      "name": "Erode",
-      "lat": 11.4905282,
-      "lon": 77.3505274,
-      "left": 30.89,
-      "top": 85.08
-    },
-    {
-      "name": "Kanchipuram",
-      "lat": 12.9647163,
-      "lon": 79.9839686,
-      "left": 37.94,
-      "top": 83.46
-    },
-    {
-      "name": "Karaikudi",
-      "lat": 10.0728444,
-      "lon": 78.7795194,
-      "left": 34.59,
-      "top": 91.56
-    },
-    {
-      "name": "Karur",
-      "lat": 10.8217671,
-      "lon": 78.3828654,
-      "left": 33.58,
-      "top": 88.58
-    },
-    {
-      "name": "Krishnagiri",
-      "lat": 12.5152075,
-      "lon": 78.0093769,
-      "left": 32.69,
-      "top": 82.5
-    },
-    {
-      "name": "Kumbakonam",
-      "lat": 10.9604108,
-      "lon": 79.3820861,
-      "left": 36.24,
-      "top": 89.36
-    },
-    {
-      "name": "Madurai",
-      "lat": 9.9261153,
-      "lon": 78.1140983,
-      "left": 32.82,
-      "top": 91.22
-    },
-    {
-      "name": "Mayiladuthurai",
-      "lat": 11.1018614,
-      "lon": 79.6503162,
-      "left": 36.95,
-      "top": 89.23
-    },
-    {
-      "name": "Nagapattinam",
-      "lat": 10.6026203,
-      "lon": 79.7619348,
-      "left": 37.22,
-      "top": 91.02
-    },
-    {
-      "name": "Namakkal",
-      "lat": 11.3033889,
-      "lon": 78.118604,
-      "left": 32.91,
-      "top": 86.66
-    },
-    {
-      "name": "Ooty",
-      "lat": 11.4126769,
-      "lon": 76.7030504,
-      "left": 29.17,
-      "top": 84.53
-    },
-    {
-      "name": "Palani",
-      "lat": 10.4511094,
-      "lon": 77.5154495,
-      "left": 31.27,
-      "top": 88.74
-    },
-    {
-      "name": "Pondicherry",
-      "lat": 12.1077297,
-      "lon": 79.9094301,
-      "left": 37.69,
-      "top": 86.21
-    },
-    {
-      "name": "Salem",
-      "lat": 11.6469616,
-      "lon": 78.2106958,
-      "left": 33.17,
-      "top": 85.63
-    },
-    {
-      "name": "Sivakasi",
-      "lat": 9.4627995,
-      "lon": 77.7891013,
-      "left": 31.94,
-      "top": 92.36
-    },
-    {
-      "name": "Thanjavur",
-      "lat": 10.659037,
-      "lon": 79.2014278,
-      "left": 35.74,
-      "top": 90.14
-    },
-    {
-      "name": "Theni",
-      "lat": 9.8692558,
-      "lon": 77.4222974,
-      "left": 30.99,
-      "top": 90.55
-    },
-    {
-      "name": "Tirunelveli",
-      "lat": 8.5495014,
-      "lon": 77.5805178,
-      "left": 31.33,
-      "top": 95.13
-    },
-    {
-      "name": "Tirupur",
-      "lat": 11.1671878,
-      "lon": 77.3472673,
-      "left": 30.86,
-      "top": 86.15
-    },
-    {
-      "name": "Tiruvannamalai",
-      "lat": 12.4289282,
-      "lon": 78.99915,
-      "left": 35.3,
-      "top": 84.01
-    },
-    {
-      "name": "Trichy",
-      "lat": 10.8071144,
-      "lon": 78.6880939,
-      "left": 34.39,
-      "top": 89.01
-    },
-    {
-      "name": "Tuticorin",
-      "lat": 8.8052602,
-      "lon": 78.1452745,
-      "left": 32.84,
-      "top": 94.98
-    },
-    {
-      "name": "Villupuram",
-      "lat": 11.9398285,
-      "lon": 79.4945645,
-      "left": 36.59,
-      "top": 86.25
-    },
-    {
-      "name": "Virudhunagar",
-      "lat": 9.4926289,
-      "lon": 77.8631831,
-      "left": 32.13,
-      "top": 92.35
-    }
-  ],
-  "Karnataka": [
-    {
-      "name": "Bangalore",
-      "lat": 12.9767936,
-      "lon": 77.590082,
-      "left": 31.61,
-      "top": 80.44
-    },
-    {
-      "name": "Belgaum",
-      "lat": 15.8572666,
-      "lon": 74.5069343,
-      "left": 23.61,
-      "top": 67.05
-    },
-    {
-      "name": "Bellary",
-      "lat": 15.1430224,
-      "lon": 76.9173277,
-      "left": 29.94,
-      "top": 72.41
-    },
-    {
-      "name": "Bidar",
-      "lat": 18.0207297,
-      "lon": 77.2487204,
-      "left": 30.98,
-      "top": 63.27
-    },
-    {
-      "name": "Bijapur",
-      "lat": 16.8269911,
-      "lon": 75.7175387,
-      "left": 26.86,
-      "top": 65.33
-    },
-    {
-      "name": "Chitradurga",
-      "lat": 14.3049174,
-      "lon": 76.5296667,
-      "left": 28.87,
-      "top": 74.71
-    },
-    {
-      "name": "Davanagere",
-      "lat": 14.2558835,
-      "lon": 75.8303421,
-      "left": 27.02,
-      "top": 74.01
-    },
-    {
-      "name": "Dharwad",
-      "lat": 15.3707296,
-      "lon": 75.1332867,
-      "left": 25.24,
-      "top": 69.44
-    },
-    {
-      "name": "Gulbarga",
-      "lat": 17.3310003,
-      "lon": 76.8334228,
-      "left": 29.84,
-      "top": 65.04
-    },
-    {
-      "name": "Hassan",
-      "lat": 13.0301852,
-      "lon": 76.1744968,
-      "left": 27.86,
-      "top": 78.51
-    },
-    {
-      "name": "Haveri",
-      "lat": 14.7180268,
-      "lon": 75.3656423,
-      "left": 25.81,
-      "top": 71.9
-    },
-    {
-      "name": "Hospet",
-      "lat": 15.266493,
-      "lon": 76.3872297,
-      "left": 28.55,
-      "top": 71.34
-    },
-    {
-      "name": "Hubli",
-      "lat": 15.3518378,
-      "lon": 75.1379848,
-      "left": 25.25,
-      "top": 69.51
-    },
-    {
-      "name": "Kolar",
-      "lat": 13.1805066,
-      "lon": 78.2669329,
-      "left": 33.41,
-      "top": 80.61
-    },
-    {
-      "name": "Mangalore",
-      "lat": 12.8698101,
-      "lon": 74.8430082,
-      "left": 24.33,
-      "top": 77.38
-    },
-    {
-      "name": "Manipal",
-      "lat": 13.3519723,
-      "lon": 74.7870308,
-      "left": 24.21,
-      "top": 75.71
-    },
-    {
-      "name": "Mysore",
-      "lat": 12.3051828,
-      "lon": 76.6553609,
-      "left": 29.09,
-      "top": 81.51
-    },
-    {
-      "name": "Raichur",
-      "lat": 16.0547194,
-      "lon": 76.9003647,
-      "left": 29.95,
-      "top": 69.36
-    },
-    {
-      "name": "Shimoga",
-      "lat": 14.0556503,
-      "lon": 75.2380553,
-      "left": 25.44,
-      "top": 73.94
-    },
-    {
-      "name": "Tumkur",
-      "lat": 13.3400771,
-      "lon": 77.1006208,
-      "left": 30.33,
-      "top": 78.63
-    },
-    {
-      "name": "Udupi",
-      "lat": 13.5269784,
-      "lon": 74.8731879,
-      "left": 24.45,
-      "top": 75.24
-    }
-  ],
-  "Kerala": [
-    {
-      "name": "Alapuzha",
-      "lat": 9.5649344,
-      "lon": 76.5444815,
-      "left": 28.65,
-      "top": 90.47
-    },
-    {
-      "name": "Calicut",
-      "lat": 11.2450558,
-      "lon": 75.7754716,
-      "left": 26.71,
-      "top": 83.94
-    },
-    {
-      "name": "Chalakudy",
-      "lat": 10.3041869,
-      "lon": 76.3371037,
-      "left": 28.14,
-      "top": 87.76
-    },
-    {
-      "name": "Kochi",
-      "lat": 9.9679032,
-      "lon": 76.2444378,
-      "left": 27.88,
-      "top": 88.76
-    },
-    {
-      "name": "Kannur",
-      "lat": 11.8763836,
-      "lon": 75.3737973,
-      "left": 25.68,
-      "top": 81.34
-    },
-    {
-      "name": "Kasargod",
-      "lat": 12.4914722,
-      "lon": 74.9877613,
-      "left": 24.69,
-      "top": 78.82
-    },
-    {
-      "name": "Kollam",
-      "lat": 8.8870533,
-      "lon": 76.5906696,
-      "left": 28.73,
-      "top": 92.78
-    },
-    {
-      "name": "Kottayam",
-      "lat": 9.6287383,
-      "lon": 76.6455326,
-      "left": 28.92,
-      "top": 90.39
-    },
-    {
-      "name": "Palakkad",
-      "lat": 10.7873692,
-      "lon": 76.4742172,
-      "left": 28.53,
-      "top": 86.33
-    },
-    {
-      "name": "Trichur",
-      "lat": 10.5270099,
-      "lon": 76.214621,
-      "left": 27.83,
-      "top": 86.87
-    },
-    {
-      "name": "Trivandrum",
-      "lat": 8.4882267,
-      "lon": 76.947551,
-      "left": 29.66,
-      "top": 94.55
-    },
-    {
-      "name": "Pathanamthitta",
-      "lat": 9.2780841,
-      "lon": 76.9737443,
-      "left": 29.77,
-      "top": 91.96
-    }
-  ],
-  "Maharashtra": [
-    {
-      "name": "Mumbai",
-      "lat": 19.054999,
-      "lon": 72.8692035,
-      "left": 19.45,
-      "top": 54.39
-    },
-    {
-      "name": "Pune",
-      "lat": 18.5213738,
-      "lon": 73.8545071,
-      "left": 22.03,
-      "top": 57.39
-    }
-  ]
-};
-  const hubs = ["chennai", "bangalore", "kochi", "mumbai", "pune", "coimbatore", "madurai", "mangalore", "trivandrum"];
+  window.showState = function(code) {
+    ['tn','ka','kl','mh','py','ap','tg','ga'].forEach(function(s){
+      var panel = document.getElementById('loc-'+s);
+      var tab   = document.getElementById('tab-'+s);
+      if(panel) panel.style.display = (s===code) ? 'block' : 'none';
+      if(tab)   tab.className = 'loc-tab' + (s===code ? ' loc-tab-active' : '');
+    });
 
-  const southStates = {
-    "Tamil Nadu": "tn",
-    "Kerala": "kl",
-    "Karnataka": "ka",
-    "Andhra Pradesh": "ap",
-    "Telangana": "tg"
+    if(window.showStateMap) window.showStateMap(code);
   };
-  const stateById = Object.fromEntries(Object.entries(southStates).map(([name, id]) => [id, name]));
-  const mapWrapper = document.getElementById('map-wrapper');
-  const mapInner = document.getElementById('map-inner');
-  const mapReset = document.getElementById('map-reset');
-  let mapSvg;
-
-  function townId(name) {
-    return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-  }
-
-  function getStateBounds(ids) {
-    if (!mapSvg) return null;
-    const bounds = ids
-      .map(id => mapSvg.querySelector(`#${id}`))
-      .filter(Boolean)
-      .map(path => path.getBBox());
-
-    if (!bounds.length) return null;
-
-    const minX = Math.min(...bounds.map(box => box.x));
-    const minY = Math.min(...bounds.map(box => box.y));
-    const maxX = Math.max(...bounds.map(box => box.x + box.width));
-    const maxY = Math.max(...bounds.map(box => box.y + box.height));
-    return { x: minX, y: minY, width: maxX - minX, height: maxY - minY };
-  }
-
-  function transformMapToBounds(bounds, padding = 1.18) {
-    if (!mapWrapper || !mapInner || !bounds) return;
-    const rect = mapWrapper.getBoundingClientRect();
-    const vb = mapSvg.viewBox.baseVal;
-    const scale = Math.min(vb.width / (bounds.width * padding), vb.height / (bounds.height * padding));
-    const centerX = (bounds.x + bounds.width / 2) / vb.width * rect.width;
-    const centerY = (bounds.y + bounds.height / 2) / vb.height * rect.height;
-    const tx = rect.width / 2 - centerX * scale;
-    const ty = rect.height / 2 - centerY * scale;
-    mapInner.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
-  }
-
-  function setVisiblePins(stateName = null) {
-    document.querySelectorAll('.map-pin').forEach(pin => {
-      const visible = stateName ? pin.dataset.state === stateName : Boolean(southStates[pin.dataset.state]);
-      pin.classList.toggle('visible-pin', visible);
-    });
-  }
-
-  function setMapOverview() {
-    if (!mapSvg) return;
-    mapWrapper.classList.remove('state-focused');
-    Object.values(southStates).forEach(id => {
-      const path = mapSvg.querySelector(`#${id}`);
-      if (path) path.classList.remove('active-state');
-    });
-    transformMapToBounds(getStateBounds(Object.values(southStates)), 1.12);
-    setVisiblePins();
-    if (mapReset) mapReset.classList.remove('visible');
-  }
-
-  function focusMapState(stateId) {
-    if (!mapSvg || !stateById[stateId]) return;
-    mapWrapper.classList.add('state-focused');
-    Object.values(southStates).forEach(id => {
-      const path = mapSvg.querySelector(`#${id}`);
-      if (path) path.classList.toggle('active-state', id === stateId);
-    });
-    transformMapToBounds(getStateBounds([stateId]), 1.45);
-    setVisiblePins(stateById[stateId]);
-    if (mapReset) mapReset.classList.add('visible');
-  }
-
-  function renderMapPins() {
-    if (!mapInner) return;
-    Object.keys(locationsData).forEach(state => {
-      locationsData[state].forEach((loc, index) => {
-        const isHub = hubs.includes(loc.name.toLowerCase());
-        const pinEl = document.createElement('div');
-        pinEl.className = `map-pin ${isHub ? 'hub-pin' : 'town-pin'}`;
-        pinEl.id = `pin-${townId(loc.name)}`;
-        pinEl.dataset.state = state;
-        pinEl.style.left = `${loc.left}%`;
-        pinEl.style.top = `${loc.top}%`;
-        pinEl.style.marginLeft = `${((index % 5) - 2) * 2}px`;
-        pinEl.style.marginTop = `${((Math.floor(index / 5) % 5) - 2) * 2}px`;
-
-        if (isHub) {
-          pinEl.innerHTML = '<div class="pin-glow"></div><div class="pin-dot"></div><span class="pin-label">' + loc.name + '</span>';
-        } else {
-          pinEl.innerHTML = '<div class="pin-dot town-dot"></div><span class="pin-tooltip">' + loc.name + '</span>';
-        }
-
-        mapInner.appendChild(pinEl);
-      });
-    });
-  }
-
-  function initInteractiveMap() {
-    if (!mapWrapper || !mapInner) return;
-    fetch('india_svg_map.svg')
-      .then(response => response.text())
-      .then(svgText => {
-        mapInner.innerHTML = svgText;
-        mapSvg = mapInner.querySelector('svg');
-        if (!mapSvg) return;
-        mapSvg.setAttribute('role', 'img');
-        mapSvg.setAttribute('aria-label', 'Interactive South India map');
-
-        mapSvg.querySelectorAll('path').forEach(path => {
-          const id = path.id;
-          if (stateById[id]) {
-            path.classList.add('south-state');
-            path.setAttribute('tabindex', '0');
-            path.setAttribute('aria-label', stateById[id]);
-            path.addEventListener('click', () => focusMapState(id));
-            path.addEventListener('keydown', event => {
-              if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                focusMapState(id);
-              }
-            });
-          }
-        });
-
-        renderMapPins();
-        requestAnimationFrame(setMapOverview);
-      })
-      .catch(() => {
-        renderMapPins();
-        setVisiblePins();
-      });
-  }
-
-  if (mapReset) {
-    mapReset.addEventListener('click', setMapOverview);
-  }
-
-  window.addEventListener('resize', () => {
-    const active = mapSvg && mapSvg.querySelector('.active-state');
-    if (active) {
-      focusMapState(active.id);
-    } else {
-      setMapOverview();
-    }
-  });
-
-  initInteractiveMap();
-
-  // Interactive Map and Hub Cards hover synchronization
-  document.querySelectorAll('.hub-card').forEach(card => {
-    card.addEventListener('mouseenter', () => {
-      const hub = card.dataset.hub;
-      const pin = document.getElementById(`pin-${hub}`);
-      if (pin) {
-        pin.querySelector('.pin-glow').style.transform = 'translate(-50%, -50%) scale(2.2)';
-        pin.querySelector('.pin-glow').style.background = 'rgba(200, 150, 62, 0.6)';
-        pin.querySelector('.pin-dot').style.transform = 'scale(1.35)';
-        pin.querySelector('.pin-dot').style.background = '#FFFFFF';
-        pin.querySelector('.pin-dot').style.borderColor = 'var(--gold)';
-        card.classList.add('active-hub');
-      }
-    });
-    
-    card.addEventListener('mouseleave', () => {
-      const hub = card.dataset.hub;
-      const pin = document.getElementById(`pin-${hub}`);
-      if (pin) {
-        pin.querySelector('.pin-glow').style.transform = '';
-        pin.querySelector('.pin-glow').style.background = '';
-        pin.querySelector('.pin-dot').style.transform = '';
-        pin.querySelector('.pin-dot').style.background = '';
-        pin.querySelector('.pin-dot').style.borderColor = '';
-        card.classList.remove('active-hub');
-      }
-    });
-  });
-
-  // Map Pins hover synchronization
-  document.addEventListener('mouseover', e => {
-    const pin = e.target.closest('.map-pin');
-    if (!pin) return;
-    
-    const hub = pin.id.replace('pin-', '');
-    const isHub = pin.classList.contains('hub-pin');
-    const card = document.querySelector(`.hub-card[data-hub="${hub}"]`);
-    
-    if (isHub) {
-      pin.querySelector('.pin-glow').style.transform = 'translate(-50%, -50%) scale(2.2)';
-      pin.querySelector('.pin-glow').style.background = 'rgba(200, 150, 62, 0.6)';
-      pin.querySelector('.pin-dot').style.transform = 'scale(1.35)';
-      pin.querySelector('.pin-dot').style.background = '#FFFFFF';
-      pin.querySelector('.pin-dot').style.borderColor = 'var(--gold)';
-      if (card) {
-        card.classList.add('active-hub');
-      }
-    }
-  });
-
-  document.addEventListener('mouseout', e => {
-    const pin = e.target.closest('.map-pin');
-    if (!pin) return;
-    
-    const hub = pin.id.replace('pin-', '');
-    const isHub = pin.classList.contains('hub-pin');
-    const card = document.querySelector(`.hub-card[data-hub="${hub}"]`);
-    
-    if (isHub) {
-      pin.querySelector('.pin-glow').style.transform = '';
-      pin.querySelector('.pin-glow').style.background = '';
-      pin.querySelector('.pin-dot').style.transform = '';
-      pin.querySelector('.pin-dot').style.background = '';
-      pin.querySelector('.pin-dot').style.borderColor = '';
-      if (card) {
-        card.classList.remove('active-hub');
-      }
-    }
-  });
-
-  // Synchronization for minor location tags
-  document.querySelectorAll('.location-tag').forEach(tag => {
-    const townName = tag.textContent.trim().toLowerCase();
-    const pin = document.getElementById(`pin-${townName}`);
-    
-    tag.addEventListener('mouseenter', () => {
-      if (pin) {
-        if (pin.classList.contains('hub-pin')) {
-          pin.querySelector('.pin-glow').style.transform = 'translate(-50%, -50%) scale(2.2)';
-          pin.querySelector('.pin-glow').style.background = 'rgba(200, 150, 62, 0.6)';
-          pin.querySelector('.pin-dot').style.transform = 'scale(1.35)';
-          pin.querySelector('.pin-dot').style.background = '#FFFFFF';
-          pin.querySelector('.pin-dot').style.borderColor = 'var(--gold)';
-          
-          const card = document.querySelector(`.hub-card[data-hub="${townName}"]`);
-          if (card) card.classList.add('active-hub');
-        } else {
-          pin.querySelector('.town-dot').style.transform = 'scale(2.2)';
-          pin.querySelector('.town-dot').style.background = '#FFFFFF';
-          pin.querySelector('.town-dot').style.boxShadow = '0 0 15px var(--gold-lt)';
-          
-          const tooltip = pin.querySelector('.pin-tooltip');
-          if (tooltip) {
-            tooltip.style.opacity = '1';
-            tooltip.style.transform = 'translateX(-50%) scale(1)';
-            tooltip.style.bottom = '14px';
-          }
-        }
-      }
-    });
-    
-    tag.addEventListener('mouseleave', () => {
-      if (pin) {
-        if (pin.classList.contains('hub-pin')) {
-          pin.querySelector('.pin-glow').style.transform = '';
-          pin.querySelector('.pin-glow').style.background = '';
-          pin.querySelector('.pin-dot').style.transform = '';
-          pin.querySelector('.pin-dot').style.background = '';
-          pin.querySelector('.pin-dot').style.borderColor = '';
-          
-          const card = document.querySelector(`.hub-card[data-hub="${townName}"]`);
-          if (card) card.classList.remove('active-hub');
-        } else {
-          pin.querySelector('.town-dot').style.transform = '';
-          pin.querySelector('.town-dot').style.background = '';
-          pin.querySelector('.town-dot').style.boxShadow = '';
-          
-          const tooltip = pin.querySelector('.pin-tooltip');
-          if (tooltip) {
-            tooltip.style.opacity = '';
-            tooltip.style.transform = '';
-            tooltip.style.bottom = '';
-          }
-        }
-      }
-    });
-  });
 </script>
+
 </body>
 </html>
