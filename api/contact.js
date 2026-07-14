@@ -24,7 +24,7 @@ export default async function handler(req, res) {
 
     const userEmailHtml = `
       <p>Dear ${name},</p>
-      <p>Thank you for reaching out to Nidhi Yugam Associates.</p>
+      <p>Thank you for reaching out to Nidhiyuga Associates.</p>
       <p>We have received your inquiry and our team will get back to you shortly regarding your request.</p>
       <p><strong>Your Message:</strong></p>
       <blockquote style="border-left: 4px solid #eee; padding-left: 1rem; color: #555;">
@@ -32,7 +32,7 @@ export default async function handler(req, res) {
       </blockquote>
       <br/>
       <p>Best regards,</p>
-      <p><strong>Nidhi Yugam Team</strong><br/>
+      <p><strong>Nidhiyuga Associates Team</strong><br/>
       <a href="mailto:sales@nidhiyuga.com">sales@nidhiyuga.com</a></p>
     `;
 
@@ -45,16 +45,16 @@ export default async function handler(req, res) {
       body: JSON.stringify([
         // 1. Email to Admin
         {
-          from: 'Nidhi Yugam <sales@nidhiyuga.com>',
+          from: 'Nidhiyuga Associates <sales@nidhiyuga.com>',
           to: ['sales@nidhiyuga.com', 'nidhiyugaassociates@gmail.com'],
           subject: `New Contact Form Submission from ${name} (${source})`,
           html: adminEmailHtml,
         },
         // 2. Auto-reply to User
         {
-          from: 'Nidhi Yugam <sales@nidhiyuga.com>',
+          from: 'Nidhiyuga Associates <sales@nidhiyuga.com>',
           to: [email],
-          subject: 'Thank you for contacting Nidhi Yugam',
+          subject: 'Thank you for contacting Nidhiyuga Associates',
           html: userEmailHtml,
         }
       ]),
