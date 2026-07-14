@@ -10,30 +10,54 @@ export default async function handler(req, res) {
   }
 
   try {
-    const response = await fetch('https://api.resend.com/emails', {
+    const adminEmailHtml = `
+      <h3>New Contact Request</h3>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+      <p><strong>Interested In:</strong> ${service || 'General Inquiry'}</p>
+      <p><strong>Message:</strong></p>
+      <p>${message}</p>
+      <hr/>
+      <p><small>Source: ${source}</small></p>
+    `;
+
+    const userEmailHtml = `
+      <p>Dear ${name},</p>
+      <p>Thank you for reaching out to Nidhi Yugam Associates.</p>
+      <p>We have received your inquiry and our team will get back to you shortly regarding your request.</p>
+      <p><strong>Your Message:</strong></p>
+      <blockquote style="border-left: 4px solid #eee; padding-left: 1rem; color: #555;">
+        ${message}
+      </blockquote>
+      <br/>
+      <p>Best regards,</p>
+      <p><strong>Nidhi Yugam Team</strong><br/>
+      <a href="mailto:sales@nidhiyuga.com">sales@nidhiyuga.com</a></p>
+    `;
+
+    const response = await fetch('https://api.resend.com/emails/batch', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        // In Vercel, we can use process.env.RESEND_API_KEY
-        // Or for local testing we can fallback if provided
         'Authorization': `Bearer ${process.env.RESEND_API_KEY || 're_5P4RyLVi_KGuLYMHNBswAPX1kHbfsTBB9'}`,
       },
-      body: JSON.stringify({
-        from: 'Nidhi Yugam Contact <notifications@nidhiyuga.in>',
-        to: ['sales@nidhiyuga.in', 'nidhiyugaassociates@gmail.com'],
-        subject: `New Contact Form Submission from ${name} (${source})`,
-        html: `
-          <h3>New Contact Request</h3>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-          <p><strong>Interested In:</strong> ${service || 'General Inquiry'}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message}</p>
-          <hr/>
-          <p><small>Source: ${source}</small></p>
-        `,
-      }),
+      body: JSON.stringify([
+        // 1. Email to Admin
+        {
+          from: 'Nidhi Yugam <sales@nidhiyuga.com>',
+          to: ['sales@nidhiyuga.com', 'nidhiyugaassociates@gmail.com'],
+          subject: `New Contact Form Submission from ${name} (${source})`,
+          html: adminEmailHtml,
+        },
+        // 2. Auto-reply to User
+        {
+          from: 'Nidhi Yugam <sales@nidhiyuga.com>',
+          to: [email],
+          subject: 'Thank you for contacting Nidhi Yugam',
+          html: userEmailHtml,
+        }
+      ]),
     });
 
     const data = await response.json();
