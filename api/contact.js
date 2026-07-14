@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         'Authorization': `Bearer ${process.env.RESEND_API_KEY || 're_5P4RyLVi_KGuLYMHNBswAPX1kHbfsTBB9'}`,
       },
       body: JSON.stringify({
-        from: 'Nidhi Yugam Contact <onboarding@resend.dev>',
+        from: 'Nidhi Yugam Contact <notifications@nidhiyuga.in>',
         to: ['sales@nidhiyuga.in', 'nidhiyugaassociates@gmail.com'],
         subject: `New Contact Form Submission from ${name} (${source})`,
         html: `
