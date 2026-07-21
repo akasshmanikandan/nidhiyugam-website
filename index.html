@@ -1196,13 +1196,14 @@
           title="Office Location – Aluva, Kerala" loading="lazy" allowfullscreen></iframe>
         <a href="https://www.openstreetmap.org/?mlat=10.0980&mlon=76.3490#map=15/10.0980/76.3490" target="_blank" rel="noopener" style="font-size:var(--fs-xs);color:var(--green);text-decoration:none;display:inline-block;margin-top:0.4rem;letter-spacing:0.05em;">&#8599; View larger map</a>
       </div>
-      <div class="contact-form wood-form">
-        <input type="text" placeholder="Your Name" />
-        <input type="email" placeholder="Email Address" />
-        <input type="text" placeholder="Company / Organisation" />
-        <textarea placeholder="Describe your wood or packaging requirement…"></textarea>
-        <button type="button" class="cf-btn cf-btn-green">Send Message</button>
-      </div>
+      <form class="contact-form wood-form" id="wood-contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Email Address" required />
+        <input type="text" name="service" placeholder="Company / Organisation" />
+        <textarea name="message" placeholder="Describe your wood or packaging requirement�" required></textarea>
+        <button type="submit" class="cf-btn cf-btn-green" id="wood-submit-btn">Send Message</button>
+        <p class="form-status" id="wood-form-status" style="display:none; font-size: 0.9rem; margin-top: 1rem;"></p>
+      </form>
     </div>
   </section>
 
