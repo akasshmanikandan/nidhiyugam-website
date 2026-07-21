@@ -10,8 +10,14 @@ export default async function handler(req, res) {
   }
 
   try {
+    const division = source || 'General Inquiry';
+    const isWoodInquiry = division.toLowerCase().includes('wood');
+    const subjectPrefix = isWoodInquiry ? '[Wood & Packaging Inquiry]' : '[Banking Inquiry]';
+    const accentColor = isWoodInquiry ? '#8B5A2B' : '#C8963E';
+
     const adminEmailHtml = `
-      <h3>New Contact Request</h3>
+      <h3 style="margin-bottom: 8px;">${subjectPrefix} New Contact Request</h3>
+      <p style="display:inline-block;background:${accentColor};color:#ffffff;padding:6px 10px;border-radius:4px;margin:0 0 12px 0;"><strong>Division:</strong> ${division}</p>
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
@@ -19,13 +25,13 @@ export default async function handler(req, res) {
       <p><strong>Message:</strong></p>
       <p>${message}</p>
       <hr/>
-      <p><small>Source: ${source}</small></p>
+      <p><small>Source: ${division}</small></p>
     `;
 
     const userEmailHtml = `
       <p>Dear ${name},</p>
       <p>Thank you for reaching out to Nidhiyuga Associates.</p>
-      <p>We have received your inquiry and our team will get back to you shortly regarding your request.</p>
+      <p>We have received your ${division} inquiry and our team will get back to you shortly regarding your request.</p>
       <p><strong>Your Message:</strong></p>
       <blockquote style="border-left: 4px solid #eee; padding-left: 1rem; color: #555;">
         ${message}
@@ -47,14 +53,14 @@ export default async function handler(req, res) {
         {
           from: 'Nidhiyuga Associates <sales@nidhiyuga.com>',
           to: ['sales@nidhiyuga.com', 'nidhiyugaassociates@gmail.com'],
-          subject: `New Contact Form Submission from ${name} (${source})`,
+          subject: `${subjectPrefix} New contact from ${name}`,
           html: adminEmailHtml,
         },
         // 2. Auto-reply to User
         {
           from: 'Nidhiyuga Associates <sales@nidhiyuga.com>',
           to: [email],
-          subject: 'Thank you for contacting Nidhiyuga Associates',
+          subject: `Thank you for contacting Nidhiyuga Associates - ${division}`,
           html: userEmailHtml,
         }
       ]),
